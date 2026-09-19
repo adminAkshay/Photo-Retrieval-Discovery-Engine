@@ -13,18 +13,25 @@ st.caption("Analyze user feedback about finding photos — free, local, no API k
 @st.cache_data
 def load_data(uploaded_file):
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-    else:
-        df = pd.read_csv("data.csv")
-    df["quote_or_summary"] = df["quote_or_summary"].fillna("").astype(str)
-    df["topic"] = df["topic"].fillna("").astype(str)
-    df["sentiment"] = df["sentiment"].fillna("neutral").astype(str).str.lower()
-    df["workaround"] = df["workaround"].fillna("N").astype(str).str.upper()
-    return df
+        return pd.read_csv(uploaded_file)
+    try:
+        return pd.read_csv("data.csv")
+    except FileNotFoundError:
+        return pd.DataFrame()
 
 
 uploaded = st.sidebar.file_uploader("Upload CSV (or use bundled data.csv)", type=["csv"])
 df = load_data(uploaded)
+
+if df.empty:
+    st.warning("⚠️ No data found. Please upload your CSV file using the sidebar on the left to begin.")
+    st.stop()
+
+# Clean and normalize columns
+df["quote_or_summary"] = df["quote_or_summary"].fillna("").astype(str)
+df["topic"] = df["topic"].fillna("").astype(str)
+df["sentiment"] = df["sentiment"].fillna("neutral").astype(str).str.lower()
+df["workaround"] = df["workaround"].fillna("N").astype(str).str.upper()
 
 
 # ---------- Layer 1: Memory cue extraction (rule-based) ----------

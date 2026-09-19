@@ -1,12 +1,36 @@
 import re
+import os
 from collections import Counter
 
+import numpy as np
 import pandas as pd
 import streamlit as st
+from groq import Groq
 
-st.set_page_config(page_title="Photo Retrieval Discovery Engine", layout="wide")
-st.title("Photo Retrieval Discovery Engine")
-st.caption("Analyze user feedback about finding photos — free, local, no API keys, no server.")
+st.set_page_config(
+    page_title="Photo Retrieval Discovery Engine",
+    page_icon="🔍",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+# ============================================================
+# GROQ CLIENT
+# ============================================================
+@st.cache_resource
+def get_groq_client():
+    api_key = None
+    try:
+        api_key = st.secrets["GROQ_API_KEY"]
+    except Exception:
+        api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        return None
+    return Groq(api_key=api_key)
+
+
+client = get_groq_client()
+LLM_MODEL = "llama-3.3-70b-versatile"
 
 
 # ============================================================
@@ -22,27 +46,13 @@ def load_data(uploaded_file):
         return pd.DataFrame()
 
 
-uploaded = st.sidebar.file_uploader("Upload CSV (or use bundled data.csv)", type=["csv"])
-df = load_data(uploaded)
-
-if df.empty:
-    st.warning("⚠️ No data found. Please upload your CSV file using the sidebar on the left to begin.")
-    st.stop()
-
-df["quote_or_summary"] = df["quote_or_summary"].fillna("").astype(str)
-df["topic"] = df["topic"].fillna("").astype(str)
-df["sentiment"] = df["sentiment"].fillna("neutral").astype(str).str.lower()
-df["workaround"] = df["workaround"].fillna("N").astype(str).str.upper()
-df["source"] = df["source"].fillna("unknown").astype(str)
-
-
 # ============================================================
 # LAYER 1: MEMORY CUES
 # ============================================================
 CUE_CATEGORIES = {
     "Person": ["dad", "mom", "mother", "father", "daughter", "son", "wife", "husband",
                "friend", "family", "baby", "child", "kid", "grandma", "grandpa",
-               "jane", "john", "selfie", " me "],
+               "jane", "john", "selfie"],
     "Place": ["beach", "temple", "japan", "city", "park", "mountain", "home", "house",
               "travel", "trip", "vacation", "abroad", "outdoor", "indoor"],
     "Object": ["dog", "cat", "pet", "car", "truck", "blowtorch", "bird", "kookaburra",
@@ -108,28 +118,146 @@ def detect_query_formulation(text):
     return "Unspecified"
 
 
-df["problems"] = df["topic"].apply(get_problems)
-df["cues"] = df["quote_or_summary"].apply(extract_cues)
-df["query_form"] = df["quote_or_summary"].apply(detect_query_formulation)
+# ============================================================
+# RAG: EMBEDDING + RETRIEVAL
+# ============================================================
+@st.cache_resource
+def load_embedder():
+    from sentence_transformers import SentenceTransformer
+    return SentenceTransformer("all-MiniLM-L6-v2")
+
+
+@st.cache_data(show_spinner="Building knowledge base...")
+def build_index(df):
+    """Embed every quote and cache the vectors."""
+    embedder = load_embedder()
+    docs = []
+    for _, row in df.iterrows():
+        text = f"{row['quote_or_summary']} | topic: {row['topic']} | source: {row['source']} | sentiment: {row['sentiment']}"
+        docs.append(text)
+    embeddings = embedder.encode(docs, show_progress_bar=False, normalize_embeddings=True)
+    return docs, embeddings
+
+
+def retrieve(query, docs, embeddings, df, k=6):
+    """Hybrid retrieval: embedding similarity + keyword boost."""
+    embedder = load_embedder()
+    q_vec = embedder.encode([query], normalize_embeddings=True)[0]
+    scores = embeddings @ q_vec  # cosine (already normalized)
+
+    # Keyword boost
+    q_lower = query.lower()
+    keywords = [w for w in re.findall(r"\b[a-z]{4,}\b", q_lower)
+                if w not in {"what", "how", "does", "the", "and", "for", "with",
+                             "about", "from", "they", "this", "that", "are",
+                             "can", "you", "show", "give", "tell", "me", "some",
+                             "any", "many", "users", "user", "photo", "photos"}]
+    for i, doc in enumerate(docs):
+        doc_lower = doc.lower()
+        for kw in keywords:
+            if kw in doc_lower:
+                scores[i] += 0.15
+
+    top_idx = np.argsort(scores)[::-1][:k]
+    return df.iloc[top_idx].copy(), scores[top_idx]
 
 
 # ============================================================
-# Q&A ENGINE (rule-based, no LLM, free)
+# RAG: PROMPT + LLM
 # ============================================================
-PHOTO_KEYWORDS = [
-    "photo", "picture", "image", "pic", "album", "search", "find", "recall",
-    "memory", "memories", "face", "faces", "person", "people", "backup",
-    "storage", "gallery", "camera", "screenshot", "video", "media", "google photos",
-    "icloud", "takeout", "retriev", "lookup", "look up", "folder", "tag", "tagging",
-    "recognition", "gemini", "ai search", "old photo", "old picture", "timeline",
-    "organize", "organise", "complaint", "review", "reddit", "play store",
-    "app store", "feedback", "workaround", "device", "forget", "forgot",
-    "remember", "query", "sentiment", "topic", "problem", "issue", "record",
-    "source", "insight", "dataset", "analyze", "analyse", "trend", "pattern",
-    "user", "users", "ui", "layout", "gemini", "google one", "quota", "shared",
-]
+SYSTEM_PROMPT = """You are the **Photo Retrieval Discovery Engine** — an expert analyst who answers questions about user feedback on photo retrieval (finding, organizing, searching, backing up photos).
 
-SUGGESTED_QUESTIONS = [
+You ONLY answer questions about:
+- photo retrieval, search, recall, memory
+- face recognition, people search, albums, folders
+- backup, storage, data loss, recovery
+- UI changes affecting photo discovery
+- user workarounds, frustrations, feature requests
+- the dataset: sources, sentiment, records, trends
+
+If the user asks something OFF-TOPIC (weather, coding, general knowledge, math, personal advice, etc.), you MUST politely refuse with this exact format:
+
+"That's outside what I do. I'm a photo retrieval discovery engine — I analyze user feedback about finding, organizing, and searching photos.
+
+Here are some things I can tell you:
+- What are the top retrieval problems users report?
+- What do users remember about their photos?
+- What do users forget about their photos?
+- How do users formulate searches?
+- Which source complains most about AI search?
+- Show me quotes about face recognition
+- How many negative records do we have?
+
+Try asking one of those, or something like 'show me quotes about old photos'."
+
+Rules:
+1. Ground EVERY claim in the retrieved evidence below. Cite row IDs like `[RP-01]`.
+2. If the evidence doesn't cover the question, say so honestly — do not hallucinate.
+3. Use markdown: bold for emphasis, bullet lists, blockquotes for raw quotes.
+4. Be concise but substantive — 3-6 sentences or a short list for most answers.
+5. When quoting a user, use a blockquote (`>`) and include the row ID and source.
+"""
+
+
+def build_context(df_subset, scores):
+    lines = []
+    for i, (_, row) in enumerate(df_subset.iterrows()):
+        score = scores[i] if i < len(scores) else 0
+        lines.append(
+            f"[{row['row_id']}] (source={row['source']}, sentiment={row['sentiment']}, "
+            f"topic={row['topic']}, relevance={score:.2f})\n"
+            f'"{row["quote_or_summary"]}"'
+        )
+    return "\n\n".join(lines)
+
+
+def ask_llm(question, df, docs, embeddings, history):
+    """Full RAG pipeline: retrieve → build prompt → call Groq → return answer + evidence."""
+    # 1. Retrieve
+    evidence_df, scores = retrieve(question, docs, embeddings, df, k=8)
+
+    # 2. Build context
+    context = build_context(evidence_df, scores)
+
+    # 3. Build messages
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+
+    # Add prior conversation (last 4 turns)
+    for turn in history[-8:]:
+        messages.append({"role": turn["role"], "content": turn["content"]})
+
+    # Add current question with retrieved context
+    messages.append({
+        "role": "user",
+        "content": f"""Dataset summary: {len(df)} records from {df['source'].nunique()} sources. {int((df['sentiment']=='negative').sum())} are negative.
+
+Retrieved evidence (top {len(evidence_df)} most relevant records):
+
+{context}
+
+---
+
+User question: {question}
+
+Answer using ONLY the evidence above. Cite row IDs. If off-topic, use the exact refusal format from your system prompt."""
+    })
+
+    # 4. Call Groq
+    response = client.chat.completions.create(
+        model=LLM_MODEL,
+        messages=messages,
+        temperature=0.3,
+        max_tokens=1200,
+    )
+    answer = response.choices[0].message.content
+
+    return answer, evidence_df
+
+
+# ============================================================
+# WELCOME SCREEN + CHAT
+# ============================================================
+SUGGESTIONS = [
     "What are the top retrieval problems users report?",
     "What do users remember about their photos?",
     "What do users forget about their photos?",
@@ -140,263 +268,177 @@ SUGGESTED_QUESTIONS = [
     "What workarounds do users mention?",
 ]
 
-OFF_TOPIC_RESPONSE = """### 🤔 That's outside what I do
 
-I'm a **photo retrieval discovery engine**. I analyze user feedback and conversations about finding, organizing, and searching photos — I don't answer general questions.
+def render_sidebar():
+    with st.sidebar:
+        st.header("📂 Data")
+        uploaded = st.file_uploader("Upload CSV", type=["csv"],
+                                    label_visibility="collapsed")
+        st.caption("Or use the bundled data.csv")
+        st.divider()
 
-**Here are some things I *can* tell you:**
-
-- What are the top retrieval problems users report?
-- What do users remember about their photos?
-- What do users forget about their photos?
-- How do users formulate searches when memory is incomplete?
-- Which source complains most about AI search?
-- Show me quotes about face recognition
-- How many negative records do we have?
-- What workarounds do users mention?
-
-Just tap one of the suggestions above or ask something like *"show me quotes about old photos"*.
-"""
-
-
-def is_on_topic(q):
-    return any(kw in q for kw in PHOTO_KEYWORDS)
-
-
-def _md_list(items, bullet="-"):
-    return "\n".join(f"{bullet} {i}" for i in items)
-
-
-def answer_question(question, df):
-    """Returns (markdown_answer, evidence_dataframe_or_None)."""
-    q = question.lower().strip()
-
-    if not is_on_topic(q):
-        return OFF_TOPIC_RESPONSE, None
-
-    # --- Top problems ---
-    if re.search(r"(top|main|biggest|common|what).*problem", q) or "pain point" in q:
-        counts = Counter(p for ps in df["problems"] for p in ps)
-        md = "### 🔎 Top retrieval problems users report\n\n"
-        for i, (p, c) in enumerate(counts.most_common(6), 1):
-            pct = 100 * c / len(df)
-            md += f"{i}. **{p}** — {c} mentions ({pct:.0f}% of records)\n"
-        md += f"\n_Based on {len(df)} records from {df['source'].nunique()} sources._"
-        return md, None
-
-    # --- What users remember ---
-    if re.search(r"remember|recall", q) and not re.search(r"forget|forgot", q):
-        cue_counts = Counter(c[1] for cs in df["cues"] for c in cs)
-        cat_counts = Counter(c[0] for cs in df["cues"] for c in cs)
-        md = "### 🧠 What users remember about their photos\n\n"
-        md += "**By category:**\n"
-        md += _md_list([f"{cat}: {c} mentions" for cat, c in cat_counts.most_common()])
-        md += "\n\n**Top specific cues:**\n"
-        md += _md_list([f"`{cue}` — {c}" for cue, c in cue_counts.most_common(10)])
-        md += "\n\n_People remember **who** and **what** and **where** — but rarely *when*._"
-        return md, None
-
-    # --- What users forget ---
-    if re.search(r"forget|forgot|can'?t remember", q):
-        mask = df["quote_or_summary"].str.lower().str.contains(
-            "forgot|can't remember|cannot remember|don't remember|do not remember", na=False
+        st.header("ℹ️ About")
+        st.markdown(
+            "This engine answers questions about **photo retrieval** using "
+            "**RAG** over user feedback from Reddit, Google Play, App Store, "
+            "and Google Support."
         )
-        subset = df[mask]
-        md = "### 🕳️ What users forget about their photos\n\n"
-        md += f"**{len(subset)}** records explicitly mention forgetting details.\n\n"
-        md += "**Most commonly forgotten:**\n"
-        md += "- 📅 Dates and years\n- 📍 Locations\n- 👤 Names of people\n- 📁 Which album or folder\n- 🔢 Sequence of events\n\n"
-        md += "Sample quotes below 👇"
-        return md, subset
+        st.markdown(
+            "**Powered by:** Groq (Llama 3.3 70B) + local embeddings  \n"
+            "**Cost:** $0  \n"
+            "**Scope:** Photo retrieval only"
+        )
+        st.divider()
 
-    # --- How users search ---
-    if re.search(r"how.*(search|query|ask|phrase|formulate)", q) or "query formulation" in q:
-        qf = df[df["query_form"] != "Unspecified"]["query_form"].value_counts()
-        md = "### 🔍 How users formulate searches\n\n"
-        for form, c in qf.items():
-            pct = 100 * c / len(df)
-            md += f"- **{form}** — {c} records ({pct:.0f}%)\n"
-        md += "\n_Users mix descriptive scene queries, face queries, and natural language._"
-        return md, None
+        if st.button("🔄 Clear conversation", use_container_width=True):
+            st.session_state.messages = []
+            st.rerun()
 
-    # --- Which source / by source ---
-    if re.search(r"(which|what) source|by source|per source|where.*live", q):
-        exploded = df.explode("problems").dropna(subset=["problems"])
-        pivot = exploded.groupby(["source", "problems"]).size().unstack(fill_value=0)
-        md = "### 📊 Problems by source\n\n**Top problem per source:**\n\n"
-        for src in pivot.index:
-            top_prob = pivot.loc[src].idxmax()
-            top_count = int(pivot.loc[src].max())
-            md += f"- **{src}** → {top_prob} ({top_count})\n"
-        return md, None
-
-    # --- Stats ---
-    if re.search(r"how many|count|stat|overall|negative|positive|total", q):
-        md = "### 📈 Dataset overview\n\n"
-        md += f"- **Total records:** {len(df)}\n"
-        md += f"- **Sources:** {df['source'].nunique()}\n"
-        for s, c in df["sentiment"].value_counts().items():
-            md += f"- **{s.title()}:** {c}\n"
-        wc = int((df["workaround"] == "Y").sum())
-        md += f"- **With workaround:** {wc}\n"
-        return md, None
-
-    # --- Workarounds ---
-    if "workaround" in q or "work around" in q or "coping" in q:
-        subset = df[df["workaround"] == "Y"]
-        md = f"### 🛠️ User workarounds\n\n**{len(subset)}** records describe a workaround.\n\n"
-        md += "Users typically:\n"
-        md += "- Download backups via Google Takeout\n"
-        md += "- Switch to Immich, Synology, or local storage\n"
-        md += "- Roll back to an older app version\n"
-        md += "- Double-tap the search icon to access the old search\n"
-        md += "- Manually correct face groups\n\n"
-        md += "Full list below 👇"
-        return md, subset
-
-    # --- Quotes / examples ---
-    if re.search(r"quote|example|show me|evidence|say about", q):
-        for kw in PHOTO_KEYWORDS:
-            if len(kw) > 4 and kw in q:
-                subset = df[df["quote_or_summary"].str.lower().str.contains(kw, na=False)]
-                if not subset.empty:
-                    md = f"### 💬 Quotes about `{kw}`\n\n**{len(subset)}** matching records."
-                    return md, subset
-
-    # --- Specific topic mentions ---
-    topic_matches = [
-        (r"face|person|people|selfie", "Person / face retrieval"),
-        (r"ai search|gemini|ask photos|ai usability", "AI search usability"),
-        (r"old photo|childhood|years ago|forgot when", "Missing / lost photos"),
-        (r"ui|layout|update|new design|redesign", "UI / layout disruption"),
-        (r"backup|sync|upload", "Backup / sync issue"),
-        (r"storage|quota|space|google one", "Storage / quota pressure"),
-        (r"organization|organise|organize|folder|album", "Organization / browse failure"),
-        (r"search|find|retrieve|lookup|look up", "Search / recall failure"),
-        (r"privacy|trust|consent", "Privacy / trust"),
-    ]
-    for pattern, topic in topic_matches:
-        if re.search(pattern, q):
-            subset = df[df["problems"].apply(lambda ps: topic in ps)]
-            if not subset.empty:
-                md = f"### 📌 {topic}\n\n"
-                md += f"**{len(subset)}** records report this problem.\n\n"
-                md += "**Breakdown by source:**\n"
-                for s, c in subset["source"].value_counts().items():
-                    md += f"- {s}: {c}\n"
-                md += "\n**Sample quotes below 👇**"
-                return md, subset
-
-    # --- Fallback: keyword search on quotes ---
-    stopwords = {"what", "how", "does", "the", "and", "for", "with", "about",
-                 "from", "they", "this", "that", "are", "can", "you", "show",
-                 "give", "tell", "me", "some", "any", "many"}
-    words = [w for w in re.findall(r"\b[a-z]{4,}\b", q) if w not in stopwords]
-    if words:
-        mask = df["quote_or_summary"].str.lower().str.contains("|".join(words), na=False)
-        subset = df[mask]
-        if not subset.empty:
-            md = f"### 🔍 Results matching: _{', '.join(words)}_\n\n**{len(subset)}** matching records."
-            return md, subset
-
-    return OFF_TOPIC_RESPONSE, None
+        return uploaded
 
 
-# ============================================================
-# KPIs
-# ============================================================
-c1, c2, c3, c4 = st.columns(4)
-c1.metric("Records", len(df))
-c2.metric("Sources", df["source"].nunique())
-c3.metric("Negative", int((df["sentiment"] == "negative").sum()))
-c4.metric("Have workaround", int((df["workaround"] == "Y").sum()))
-
-
-# ============================================================
-# TABS
-# ============================================================
-tab1, tab2, tab3, tab4, tab5 = st.tabs(
-    ["Problems", "Memory cues", "Query formulation", "Explore", "💬 Ask"]
-)
-
-with tab1:
-    st.subheader("Top retrieval problems")
-    prob_counts = Counter(p for ps in df["problems"] for p in ps)
-    prob_df = pd.DataFrame(prob_counts.most_common(15), columns=["problem", "count"])
-    prob_df = prob_df[prob_df["count"] > 0].set_index("problem")
-    st.bar_chart(prob_df)
-
-    st.subheader("Problems by source (where does each problem live?)")
-    exploded = df.explode("problems").dropna(subset=["problems"])
-    pivot = exploded.groupby(["source", "problems"]).size().unstack(fill_value=0)
-    st.dataframe(pivot)
-
-with tab2:
-    st.subheader("What do users actually remember about photos?")
-    cue_counts = Counter(c[1] for cs in df["cues"] for c in cs)
-    st.bar_chart(pd.DataFrame(cue_counts.most_common(20),
-                              columns=["cue", "count"]).set_index("cue"))
-
-    st.subheader("By cue category")
-    cat_counts = Counter(c[0] for cs in df["cues"] for c in cs)
-    st.bar_chart(pd.DataFrame(cat_counts.most_common(),
-                              columns=["category", "count"]).set_index("category"))
-
-with tab3:
-    st.subheader("How users formulate searches when memory is incomplete")
-    qf = df[df["query_form"] != "Unspecified"]["query_form"].value_counts()
-    st.bar_chart(qf)
-
-    st.subheader("Query formulation × sentiment")
-    st.dataframe(pd.crosstab(df["query_form"], df["sentiment"]))
-
-with tab4:
-    st.subheader("Filter & export")
-    sources = st.multiselect("Source", sorted(df["source"].unique()),
-                             default=sorted(df["source"].unique()))
-    sentiments = st.multiselect("Sentiment", sorted(df["sentiment"].unique()),
-                                default=sorted(df["sentiment"].unique()))
-    filtered = df[df["source"].isin(sources) & df["sentiment"].isin(sentiments)]
-
-    st.write(f"**{len(filtered)}** records")
-    st.dataframe(filtered[["row_id", "source", "date", "topic",
-                           "sentiment", "quote_or_summary"]],
-                 use_container_width=True)
-
-    st.download_button("Download filtered CSV",
-                       filtered.to_csv(index=False).encode("utf-8"),
-                       "filtered.csv", "text/csv")
-
-with tab5:
-    st.subheader("💬 Ask about photo retrieval")
-    st.caption("Ask about what users say. Anything off-topic will be politely declined.")
-
-    # Suggested question buttons
-    st.markdown("**Try one of these:**")
-    cols = st.columns(2)
-    for i, sq in enumerate(SUGGESTED_QUESTIONS):
-        if cols[i % 2].button(sq, key=f"sugg_{i}", use_container_width=True):
-            st.session_state["pending_q"] = sq
-
-    question = st.text_input(
-        "Or type your own question:",
-        value=st.session_state.get("pending_q", ""),
-        placeholder="e.g. What do users forget about their photos?",
+def render_welcome():
+    """Landing screen shown before the first question."""
+    st.markdown(
+        """
+        <div style="text-align: center; padding: 2rem 0 1rem 0;">
+            <h1 style="font-size: 2.6rem; margin-bottom: 0.3rem;">🔍 Photo Retrieval Discovery Engine</h1>
+            <p style="font-size: 1.15rem; color: #888; max-width: 700px; margin: 0 auto;">
+                Ask anything about how users find, remember, forget, and search for their photos.
+                Grounded in real feedback from Reddit, Google Play, App Store, and Google Support.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    if question:
-        # Clear pending so it doesn't stick forever
-        if question == st.session_state.get("pending_q"):
-            st.session_state["pending_q"] = ""
+    st.markdown("### 💬 Try asking")
+    cols = st.columns(2)
+    for i, s in enumerate(SUGGESTIONS):
+        if cols[i % 2].button(s, key=f"welcome_sugg_{i}", use_container_width=True):
+            st.session_state.pending_question = s
+            st.rerun()
 
-        answer_md, evidence_df = answer_question(question, df)
-        st.markdown("---")
-        st.markdown(answer_md)
+    st.markdown(
+        """
+        <div style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.9rem;">
+            ⚡ Powered by Groq + Llama 3.3 70B &nbsp;·&nbsp; 🔒 Runs on your data &nbsp;·&nbsp; 💸 Free
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        if evidence_df is not None and not evidence_df.empty:
-            with st.expander(f"📎 Show {min(len(evidence_df), 10)} supporting quotes"):
-                for _, row in evidence_df.head(10).iterrows():
-                    st.markdown(
-                        f"**{row['row_id']}** · *{row['source']}* · {row['sentiment']}"
+
+def render_chat():
+    """Render the full conversation history."""
+    for msg in st.session_state.messages:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+            if msg.get("evidence") is not None and not msg["evidence"].empty:
+                with st.expander(f"📎 {len(msg['evidence'])} supporting records"):
+                    for _, row in msg["evidence"].head(6).iterrows():
+                        st.markdown(
+                            f"**{row['row_id']}** · *{row['source']}* · {row['sentiment']}"
+                        )
+                        st.markdown(f"> {row['quote_or_summary']}")
+
+
+# ============================================================
+# MAIN
+# ============================================================
+def main():
+    uploaded = render_sidebar()
+    df = load_data(uploaded)
+
+    if df.empty:
+        st.warning("⚠️ No data found. Upload a CSV from the sidebar.")
+        st.stop()
+
+    # Clean columns
+    df["quote_or_summary"] = df["quote_or_summary"].fillna("").astype(str)
+    df["topic"] = df["topic"].fillna("").astype(str)
+    df["sentiment"] = df["sentiment"].fillna("neutral").astype(str).str.lower()
+    df["workaround"] = df["workaround"].fillna("N").astype(str).str.upper()
+    df["source"] = df["source"].fillna("unknown").astype(str)
+
+    # Add derived columns
+    df["problems"] = df["topic"].apply(get_problems)
+    df["cues"] = df["quote_or_summary"].apply(extract_cues)
+    df["query_form"] = df["quote_or_summary"].apply(detect_query_formulation)
+
+    # Build retrieval index (cached)
+    docs, embeddings = build_index(df)
+
+    # Session state
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    if "pending_question" not in st.session_state:
+        st.session_state.pending_question = None
+
+    # API key check
+    if client is None:
+        st.error(
+            "🔑 **Groq API key not found.**  \n"
+            "Add `GROQ_API_KEY` to Streamlit secrets (Settings → Secrets) "
+            "or set it as an environment variable."
+        )
+        st.stop()
+
+    # Welcome screen vs chat
+    if not st.session_state.messages:
+        render_welcome()
+    else:
+        st.markdown("## 🔍 Photo Retrieval Discovery Engine")
+        st.caption("Ask about photo retrieval — anything off-topic gets politely declined.")
+        render_chat()
+
+    # Chat input (always at the bottom)
+    prompt = st.chat_input("Ask about photo retrieval...")
+
+    # Handle suggestion click
+    if st.session_state.pending_question:
+        prompt = st.session_state.pending_question
+        st.session_state.pending_question = None
+
+    if prompt:
+        # Show user message
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # Generate answer
+        with st.chat_message("assistant"):
+            with st.spinner("Searching evidence and thinking..."):
+                try:
+                    answer, evidence = ask_llm(
+                        prompt, df, docs, embeddings,
+                        st.session_state.messages[:-1],
                     )
-                    st.markdown(f"> {row['quote_or_summary']}")
+                    st.markdown(answer)
+                    if not evidence.empty:
+                        with st.expander(f"📎 {len(evidence)} supporting records"):
+                            for _, row in evidence.head(6).iterrows():
+                                st.markdown(
+                                    f"**{row['row_id']}** · *{row['source']}* · {row['sentiment']}"
+                                )
+                                st.markdown(f"> {row['quote_or_summary']}")
+
+                    st.session_state.messages.append({
+                        "role": "assistant",
+                        "content": answer,
+                        "evidence": evidence,
+                    })
+                except Exception as e:
+                    error_msg = f"⚠️ Error calling LLM: `{e}`"
+                    st.error(error_msg)
+                    st.session_state.messages.append({
+                        "role": "assistant",
+                        "content": error_msg,
+                        "evidence": None,
+                    })
+
+        st.rerun()
+
+
+if __name__ == "__main__":
+    main()

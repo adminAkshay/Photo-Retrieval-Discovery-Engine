@@ -1,0 +1,530 @@
+row_id,source,date,device,topic,sentiment,confidence,data_loss,workaround,quote_or_summary
+RP-01,Reddit,n/a,Android,"data_loss,free_up_space,backup_issue",negative,High,Y,N,I left no stone unturned... more than half of them are missing from Google Photos as well.
+RP-01a,Reddit comment,n/a,n/a,"workaround,backup_issue",neutral,Medium,N,Y,Try downloading a backup now from the Google Takeout website... Change the default archive size from 2 GB to 50 GB.
+RP-01b,Reddit comment,n/a,n/a,recovery,neutral,High,N,Y,Did you try the 'photo recovery' option where they attempt to recover anything permanently deleted in the past few days?
+RP-01c,Reddit comment,n/a,n/a,backup_issue,neutral,High,N,Y,A single point of failure isn't a backup... always have 3 copies. In 2 types of media. 1 off-site. 3-2-1.
+RP-02,Reddit,n/a,n/a,"search_failure,ai_gemini",negative,High,N,N,yellow truck' finds 2 of 10 days... used to find every damn fork.
+RP-02a,Reddit comment,n/a,n/a,"workaround,ai_gemini",neutral,Low,N,Y,I am building an app that does high quality on device image search...
+RP-03,Reddit,n/a,Samsung S25 Ultra,"search_failure,face_recognition",negative,Medium,N,N,Search for a specific photo of my dad and one of my daughters... found to find the correct.
+RP-03a,Reddit comment,n/a,n/a,"face_recognition,workaround",neutral,Medium,N,Y,Face match works great if you take the time to correct it and merge the same faces.
+RP-04,Reddit,n/a,n/a,"search_failure,face_recognition",negative,Medium,N,Y,How can I search for photos that include 'Jane' and 'John'?
+RP-04a,Reddit comment,n/a,n/a,"workaround,face_recognition",neutral,High,N,Y,"Just search for 'Jane and John'. You can also go on the faces panel, pick jane and then add john."
+RP-04b,Reddit comment,n/a,n/a,"workaround,face_recognition",neutral,Medium,N,Y,"Search for one face, then there should be suggestions at the top to add another."
+RP-05,Reddit,n/a,n/a,"ui_change,search_failure,ai_gemini",negative,High,N,Y,Removing the traditional search... replacing it with AI has made categorization completely crap.
+RP-05a,Reddit comment,n/a,n/a,"ai_gemini,workaround",neutral,High,N,Y,You can deactivate the AI functionally and the search reverts to the usual.
+RP-05b,Reddit comment,n/a,n/a,ui_change,negative,Medium,N,N,It also used to organize groups of photos by date... That feature is lost for me now.
+RP-05c,Reddit comment,n/a,n/a,feature_request,negative,Medium,N,N,No in app duplicate detection and deletion... stacked photos is so inaccurate.
+RP-06,Reddit,n/a,n/a,"search_failure,ai_gemini",negative,High,N,Y,Search 'redeye' or 'coyote'... yesterday it was working. now nothing... looked into immich.
+RP-06a,Reddit comment,n/a,n/a,"ai_gemini,workaround",neutral,Medium,N,Y,Could be the new Gemini search feature. In the settings you can turn this off.
+RP-06b,Reddit comment,n/a,n/a,"workaround,search_failure",neutral,High,N,Y,Double-tapping the magnifying glass (search) icon brings you directly to the old photo search.
+RP-06c,Reddit comment,n/a,n/a,"workaround,search_failure",neutral,Medium,N,Y,At the bottom right there is the word 'ask'... enter the word you want to search for.
+RP-07,Reddit,n/a,n/a,"search_failure,privacy",negative,Medium,N,Y,Going through 14 years of photos... screen shotting them and then deleting. My eyes hurt.
+RP-07a,Reddit comment,n/a,n/a,"workaround,backup_issue",neutral,High,N,Y,Why aren't you using Google Takeout? Just download all of them as a backup.
+RP-07b,Reddit comment,n/a,n/a,"workaround,backup_issue",neutral,Medium,N,Y,I ordered my synology and plan to move to immich and degoogle because of this.
+RP-07c,Reddit comment,n/a,n/a,"workaround,backup_issue",neutral,Medium,N,Y,Get a SAN with 4 hard drives... Install immich... Enable backblaze cloud backup.
+RP-07d,Reddit comment,n/a,n/a,"data_loss,backup_issue",negative,High,Y,Y,Spent hours going through and deleting totally innocent photos... did Google Takeout.
+RP-07e,Reddit comment,n/a,n/a,"workaround,feature_request",neutral,Low,N,Y,I've been experimenting with an app based on that idea (Biclic).
+RP-08,Reddit,n/a,n/a,"search_failure,ai_gemini",negative,High,N,Y,Kookaburra shows nothing... 'ask' for birds shows 6 of 400... What the actual fuck.
+RP-08a,Reddit comment,n/a,n/a,"ai_gemini,workaround",neutral,High,N,Y,Photos settings > Preferences > Gemini features in Photos
+RP-08b,Reddit comment,n/a,n/a,"ai_gemini,search_failure",mixed,High,N,Y,Google PM: The AI based search response should kick on more descriptive and complex questions.
+RP-08c,Reddit comment,n/a,n/a,ai_gemini,negative,Medium,N,N,Can you imagine telling people you work at Google... replacing search with Gemini.
+RP-08d,Reddit comment,n/a,n/a,"search_failure,ai_gemini",positive,Medium,N,N,Mine says 'search or ask'... works quite well for me... Am I in a parallel universe?
+RP-09,Reddit,n/a,n/a,"search_failure,ai_gemini",negative,High,N,N,Dog search gives tiny subset... blowtorch gives 8 results none containing a blowtorch.
+RP-09a,Reddit comment,n/a,n/a,search_failure,positive,Medium,N,N,I get thousands of photos for 'dog' and also for 'blowtorch'. Have you tried searching on web?
+RP-09b,Reddit comment,n/a,n/a,"workaround,backup_issue",neutral,Medium,N,Y,That is why i dont really like cloud services... willing to switch to synology.
+RP-10,Reddit,n/a,Samsung S26,"data_loss,backup_issue",negative,Medium,Y,N,"Weird images showed up in my google photos... only in google photos, not my phone gallery."
+RP-10a,Reddit comment,n/a,n/a,data_loss,neutral,Medium,Y,Y,Most likely from an app... I removed it and it hasn't happened since.
+RP-10b,Reddit comment,n/a,n/a,data_loss,neutral,Medium,Y,N,Looks like game assets - textures applied to 3d geometry.
+RP-10c,Reddit comment,n/a,n/a,data_loss,negative,Medium,Y,N,I got the exact same photos... blusher.png or stereo.png... 800x800... sometimes it becomes something totally different.
+RP-11,Reddit,n/a,n/a,"face_recognition,positive_experience",positive,Low,N,N,Google Photos thinks I'm a different person now. (24) To (26) - 10kg down.
+RP-12,Reddit,n/a,n/a,"search_failure,face_recognition",negative,High,N,Y,"Trying to find photos of me alone... AI doesn't understand 'alone', 'and nobody else'."
+RP-12a,Reddit comment,n/a,n/a,"workaround,face_recognition",neutral,High,N,Y,Go to Search - Pick a needed face - on the top there will be 'Only them' filter.
+RP-12b,Reddit comment,n/a,n/a,"search_failure,face_recognition",negative,Medium,N,N,"I couldn't qualify my results with 'me, selfie'... I want pictures other people took of me."
+RP-13,Reddit,n/a,n/a,"search_failure,ai_gemini",negative,Medium,N,N,Sorry if this has been asked a hundred times but how can I better navigate the image search?
+RP-13a,Reddit comment,n/a,n/a,"workaround,ai_gemini",neutral,High,N,Y,Google has some help pages dedicated to search... Gemini Results: Key Ways to Search.
+RP-14,Reddit,n/a,n/a,"search_failure,ai_gemini",negative,High,N,Y,Google photos removing 'search' and replacing it with 'ask' is the worst feature I've ever seen.
+SG-01,Google Support,n/a,n/a,"search_failure,ai_gemini",neutral,High,N,N,"Search by people, things & places in your photos - official help article"
+SG-02,Google Support,n/a,n/a,ai_gemini,neutral,High,N,N,"Search for your photos, videos, & more with Google Photos in Gemini Apps"
+SG-03,Google Support,n/a,n/a,"privacy,ai_gemini",neutral,High,N,N,How Google Photos helps you identify how photos & videos were made (Content Credentials)
+SG-04,Google Support,n/a,n/a,feature_request,neutral,High,N,N,Get started with Google Photos
+SG-05,Google Support,n/a,n/a,ai_gemini,neutral,High,N,N,"Use Ask Photos to search, edit & get assistance"
+SG-06,Google Support,n/a,n/a,"recovery,search_failure",neutral,High,N,N,"Find lost photos & videos - includes search syntax, limitations, Ask Photos"
+SG-07,Google Support,n/a,n/a,search_failure,neutral,High,N,N,"Understand, find & edit your photos' locations"
+SG-08,Google Support,2019-03-28,n/a,"recovery,backup_issue",neutral,Medium,N,N,I have an google photo's ive ben locked out of 4... - community forum
+SG-09,Google Support,n/a,n/a,backup_issue,neutral,High,N,N,Check your backup
+SG-10,Google Support,2019-04-29,n/a,"ui_change,search_failure",neutral,Medium,N,N,thumbnails photos are showing together with the normal photos... hard to find normal photos
+SG-11,Google Support,n/a,n/a,backup_issue,neutral,High,N,N,How to download your Google data
+SG-12,Google Support,n/a,n/a,storage_quota,neutral,High,N,N,Manage your storage
+SG-13,Google Support,n/a,n/a,backup_issue,neutral,High,N,N,Add photos & videos from Google Drive to...
+SG-14,Google Support,n/a,n/a,storage_quota,neutral,High,N,N,About your Google Photos activity & storage
+SG-15,Google Support,n/a,n/a,feature_request,neutral,High,N,N,Get started with photo prints from Google Photos
+SG-16,Google Support,n/a,n/a,"workaround,backup_issue",neutral,High,N,N,Copy your photos & videos to a service outside...
+SG-17,Google Support,n/a,n/a,free_up_space,neutral,High,N,N,"Free up space on your device - If a deleted photo isn't in Trash, you can't restore it."
+SG-18,Google Support,n/a,n/a,feature_request,neutral,High,N,N,Use photo picker to share photos in other apps
+SG-19,Google Support,n/a,n/a,feature_request,neutral,High,N,N,Find & manage your featured memories
+SG-20,Google Support,n/a,n/a,workaround,neutral,High,N,N,Transfer iCloud photos and videos to Google Photos
+SG-21,Google Support,n/a,n/a,backup_issue,neutral,High,N,N,Troubleshoot photos not backing up
+SG-22,Google Support,2019-05-14,n/a,"folder_view,search_failure",neutral,Medium,N,N,"Where do photos go when you select remove... - 113 upvotes, 4 replies"
+SG-23,Google Support,2019-12-14,n/a,"recovery,backup_issue",neutral,Medium,N,N,"How can I restore my photos to my new hard disk, from my google takeout files? - 28 upvotes, 7 replies"
+SG-24,Google Support,2026-02-13,n/a,"folder_view,search_failure",neutral,Medium,N,N,"I just want to view my pictures by the folders I've... - 1 upvote, 5 replies"
+AS-01,Apple App Store,2022-04-16,iPhone,positive_experience,positive,Medium,N,N,Being a pro shooter... this app is so handy... naming someone and getting every image they have been in is amazing.
+AS-02,Apple App Store,2020-07-01,iPhone,"free_up_space,data_loss",negative,High,N,N,"It wanted me to delete 324 photos to 'free up my space'... when I did that, I could no longer see them."
+AS-03,Apple App Store,2021-02-20,iPhone,storage_quota,mixed,Medium,N,N,Only 15 GB of storage... purchased 100 GB for $1.99... download quality of videos is a downside.
+AS-04,Apple App Store,2023-03-12,iPhone,storage_quota,negative,High,N,N,Not enough free storage... I hate paying for stuff that was once free.
+AS-05,Apple App Store,2019-02-10,iPhone,positive_experience,positive,Medium,N,N,"It's like a short story in pictures w music... My only concern is, is my privacy at risk?"
+AS-06,Apple App Store,2022-12-11,iPhone,positive_experience,positive,Medium,N,N,10/10 stars. My only complaint is I just wished it worked better for offline use.
+AS-07,Apple App Store,2018-08-16,iPhone,feature_request,mixed,Medium,N,N,Great app but lacking some features... manual tag faces... recognize and tag people in videos.
+AS-08,Apple App Store,2023-12-08,iPhone,"storage_quota,privacy",mixed,Medium,N,N,Too good to be true when they offered unlimited photo storage. Sadly that came to an end.
+AS-09,Apple App Store,2025-10-28,iPhone,feature_request,positive,Medium,N,N,Add a feature which can delete the duplicate photos from the storage
+AS-10,Apple App Store,2021-07-19,iPhone,"storage_quota,feature_request",mixed,Medium,N,N,Please dont limit this storage... now we have to think before saving photos
+AS-11,Apple App Store,2020-04-11,iPhone,"feature_request,face_recognition,backup_issue",mixed,Medium,N,N,1. upload pics directly from iPhone gallery 2. specific pictures of persons only 3. notification if not uploaded on GPhotos is deleted
+AS-12,Apple App Store,2020-01-05,iPhone,"positive_experience,search_failure",positive,Medium,N,N,Before it came our photos after a few days used to go to draft and cannot even remember those dates
+AS-13,Apple App Store,2021-04-28,iPhone,storage_quota,mixed,Medium,N,N,Please increase the free storage upto 20 Gb now
+AS-14,Apple App Store,2020-11-08,iPhone,"backup_issue,sharing",negative,High,N,N,Whenever I click on share button nothing happens... photos are not getting backed up
+AS-15,Apple App Store,2018-12-13,iPhone,"positive_experience,free_up_space",positive,Medium,N,Y,In settings it has free up space option... It will work once it has been uploaded to server
+AS-16,Apple App Store,2018-12-16,iPhone,privacy,negative,High,N,N,All the photos in google photos app are shared as a public link and not privately
+AS-17,Apple App Store,2020-05-02,iPhone,"positive_experience,face_recognition",positive,Medium,N,N,"Does very well in sorting of photos according to their faces, locations"
+AS-18,Apple App Store,2019-09-05,iPhone,positive_experience,positive,Medium,N,N,"Versatile, intuitive and time saving"
+AS-19,Apple App Store,2022-04-17,iPhone,positive_experience,positive,Medium,N,N,Function of particular date photos of the past reminder is extremely good
+AS-20,Apple App Store,2018-12-15,iPhone,"backup_issue,ui_change",negative,High,N,N,"Takes me weeks to upload a video... while adding photos to album, there should be a search option"
+AS-21,Apple App Store,2017-11-21,iPhone,"feature_request,folder_view",mixed,Medium,N,N,How can I not store the pictures from all google accounts... delete similar ones from both accounts
+AS-22,Apple App Store,2025-09-20,iPhone 15 Pro Max,"ui_change,data_loss",negative,High,Y,N,Opening Google Photos causes device to heat up... none of my albums load-only a blank page
+AS-23,Apple App Store,2022-12-28,iPhone,feature_request,mixed,Medium,N,N,More templates to make collages and an option to edit the collage manually
+AS-24,Apple App Store,2020-05-21,iPhone,ui_change,positive,Medium,N,N,Could do better with video streaming in high quality
+AS-25,Apple App Store,2021-05-30,iPhone,"privacy,feature_request",mixed,Medium,N,N,We should have touch id enabled in iOS Apps for this app as well
+AS-26,Apple App Store,2020-08-29,iPhone,"folder_view,feature_request",positive,Medium,N,N,If the option in description of photos tells us in which all albums does the photo exist
+AS-27,Apple App Store,2026-04-11,iPhone,"storage_quota,backup_issue",negative,High,N,N,Purchased 30 GB Google One... Photos still showing 15/15 GB full and my backup is completely stopped
+AS-28,Apple App Store,2022-01-21,iPhone,storage_quota,negative,Medium,N,N,Please don't make me regret it having it i have a huge number of memories stored
+AS-29,Apple App Store,2025-09-25,iPhone,"positive_experience,search_failure",positive,Medium,N,N,Ability to locate an old photo very fast... I use iPhone for good photos and use google photos to sort and STORE
+AS-30,Apple App Store,2020-06-11,iPhone,privacy,negative,Medium,N,N,It didn't have a password if we open the iphone lock there is no restriction to open it
+AS-31,Apple App Store,2024-05-07,iPhone,storage_quota,positive,Medium,N,N,Unlimited storage of 15 Gb... suggest every uses to purchase their 200 gb storage plan
+AS-32,Apple App Store,2022-04-25,iPhone,positive_experience,positive,Medium,N,N,Best app ever! I have no issues using this app. It is also very simple to use
+AS-33,Apple App Store,2020-10-31,iPhone,"folder_view,ui_change",mixed,Medium,N,N,All photos get mixed with each other if you make it as by date wise... make same folder name
+PG-01,Google Play,2026-09-16,Android,storage_quota,negative,Low,N,N,Why the same storage management tool updation is being appeared?
+PG-04,Google Play,2026-09-16,Android,"storage_quota,free_up_space",negative,High,N,Y,Please make it so that we can delete all backup photos from the cloud storage ONLY on mobile.
+PG-05,Google Play,2026-09-16,Android,privacy,negative,Low,N,N,I prefer access to my own photos and not anyone else.
+PG-06,Google Play,2026-09-15,Android,"ui_change,ai_gemini",negative,Medium,N,N,Not intuitive for digital art... AI tools are trash... STOP MOVING IT AROUND!
+PG-07,Google Play,2026-09-15,Android,"search_failure,ai_gemini",negative,High,N,N,The image search feature has actually gotten worse.
+PG-11,Google Play,2026-09-15,Android,ui_change,negative,Low,N,N,Doesn't update this app.
+PG-12,Google Play,2026-09-14,Android,ui_change,negative,High,N,N,Latest update doesn't let you have a 4 across grid anymore... random photos are massive.
+PG-14,Google Play,2026-09-14,Android,"ui_change,ai_gemini",negative,Medium,N,N,Getting worse constantly advancing in the wrong areas and ruining things.
+PG-15,Google Play,2026-09-14,Android,ui_change,negative,Low,N,N,Photo It closes quickly while editing.
+PG-22,Google Play,2026-09-13,Android,ui_change,negative,Medium,N,N,Printing pictures became a nightmare... Fujifilm and no in-store pick up.
+PG-24,Google Play,2026-09-13,Android,recovery,positive,Low,N,N,Very nice in regards of recovering old photos.
+PG-25,Google Play,2026-09-13,Android,recovery,negative,Low,N,N,How do I get access to my photos.
+PG-26,Google Play,2026-09-13,Android,recovery,negative,High,N,Y,My photo not showing. - Google Support: Try to follow these steps to find lost photos... check your Locked Folder.
+PG-27,Google Play,2026-09-13,Android,"recovery,data_loss",negative,High,Y,Y,"Lost my old photos, how to recover? - Google Support: same reply as PG-26."
+PG-28,Google Play,2026-09-13,Android,ui_change,negative,Medium,N,N,"Portrait Blur does not work correctly, HDR is missing, UI has too much backlash."
+PG-29,Google Play,2026-09-13,Android,"data_loss,backup_issue",negative,High,Y,N,My entire WhatsApp images and WhatsApp videos files have disappeared.
+PG-32,Google Play,2026-09-13,Android,ui_change,negative,Medium,N,N,"The UI of the latest version of photos is very strange and confusing, please bring back the old UI."
+PG-33,Google Play,2026-09-13,Android,"ui_change,backup_issue",negative,Medium,N,N,"Not showing unsynchronize video n photo from mobile gallery, confusing."
+PG-34,Google Play,2026-09-13,Android,ui_change,negative,High,N,Y,Incredibly buggy video editor... Crashes or just hangs when trying to add audio. - Google Support reply.
+PG-38,Google Play,2026-09-12,Android,"free_up_space,backup_issue",negative,High,N,Y,I cant free up some space even though the back up has been completed. - Google Support: Learn more about how the Free up space option works.
+PG-39,Google Play,2026-09-12,Android,"free_up_space,backup_issue",negative,Medium,N,N,Add an option to remove a backed up photo... why is that when I delete something and re-add it later it's still backed up?
+PG-40,Google Play,2026-09-12,Android,ui_change,negative,Medium,N,N,"Editing is now broken, crops randomly."
+PG-41,Google Play,2026-09-12,Android,storage_quota,negative,High,N,N,Google keeps asking me to pay... even if I clean up the space i still have this reminder after a few weeks.
+PG-42,Google Play,2026-09-12,Android,"data_loss,recovery",negative,Medium,Y,N,I was forget my phone photo could you please reback those dental photo.
+PG-43,Google Play,2026-09-12,Android,"ui_change,ai_gemini",negative,Medium,N,N,Why is there a shimmering white line around people?... I think I'll stop paying for it.
+PG-44,Google Play,2026-09-12,Android,backup_issue,negative,Medium,N,N,When i download pic from google photo to device.. its not saved in mobile.. why so?
+PG-45,Google Play,2026-09-12,Android,"ui_change,privacy",negative,High,N,Y,Can't use it anymore with that creepy trace line... now using the stock samsung photo app. - 12 people found helpful
+PG-46,Google Play,2026-09-11,Android,ui_change,negative,Low,N,N,"Who wants this, do we need it really... photos were better then."
+PG-47,Google Play,2026-09-11,Android,ui_change,negative,Medium,N,N,Compilations... play a song over the original audio... no setting to remove it.
+PG-48,Google Play,2026-09-11,Android,"storage_quota,workaround",negative,High,N,Y,16 gb is not enough... I want to select all and cut then paste in another memory card. - Google Support: You can use Google Takeout.
+PG-49,Google Play,2026-09-11,Android,ui_change,negative,High,N,N,"Edit a photo, save it and it ends up with lines across it or half the picture is purple. - Google Support: The team is aware."
+PG-53,Google Play,2026-09-11,Android,ui_change,negative,Low,N,N,Videos section... thumbnails are automatically zoomed in.
+PG-56,Google Play,2026-09-11,Android,"ui_change,ai_gemini",negative,High,N,Y,The image being edited is tiny... what happened to the magic eraser suggestions. - Google Support: The team is aware.
+PG-59,Google Play,2026-09-10,Android,"data_loss,recovery",negative,High,Y,Y,Some of my pictures are not showing up they are just a white screen... when I try to remove a picture from my album it's still there. - 9 people found helpful
+PG-63,Google Play,2026-09-10,Android,ui_change,negative,High,N,N,The new UI is annoying... making buttons smaller for no reason... external screen of my razr back. - 31 people found helpful
+PG-64,Google Play,2026-09-10,Android,ui_change,negative,High,N,Y,"I hate that show shimmer feature and I can't get it off. - Google Support: Tap Profile picture > Settings > Preferences > Photos view, toggle off Show shimmer."
+PG-67,Google Play,2026-09-10,Android,ui_change,negative,Medium,N,N,"So many bugs, are google devs incompetent?"
+PG-70,Google Play,2026-09-10,Android,ai_gemini,negative,High,N,Y,Photo to video editor's model Veo2 is way to strict... Recommended: Visionstoryai. - 9 people found helpful
+PG-71,Google Play,2026-09-09,Android,"ai_gemini,privacy",negative,Medium,N,N,I don't want or need AI to suggest edits and log every subject in my photos.
+PG-74,Google Play,2026-09-09,Android,"backup_issue,privacy",negative,Medium,N,N,"Have to punch threw several options... don't miss out, update and backup all your personal photos to China prompt."
+PG-75,Google Play,2026-09-09,Android,ui_change,negative,Medium,N,N,"Used a backed up photo for a wallpaper... no option to use as a lock screen, changed my original lock screen. - 5 people found helpful"
+PG-76,Google Play,2026-09-09,Android,"ui_change,folder_view",negative,High,N,N,Newest UI changed ruined a lot. Still no way to sort the collections page how you want it. - 7 people found helpful
+PG-77,Google Play,2026-09-09,Android,"recovery,data_loss",negative,High,Y,Y,Can't get my photos. - Google Support: Try to follow these steps to find lost photos... check your Locked Folder.
+PG-79,Google Play,2026-09-08,Android,"backup_issue,feature_request",negative,High,N,Y,Needs a proper selective backup feature... allow users to choose only camera photos or exclude videos. - Google Support: You can back up specific device folders.
+PG-80,Google Play,2026-09-08,Android,"ai_gemini,ui_change",negative,High,N,Y,Magic Eraser ain't working properly. - Google Support: The team is aware.
+PG-501,Google Play,2024-11-08,Android,"ui_change,folder_view",negative,High,N,N,I'm not the biggest fan of folders being on a second page... I can't delete photos anymore
+PG-502,Google Play,2024-09-24,Android,"backup_issue,data_loss",negative,High,Y,N,"Uninstalled 10 times, photos missing from albums, opens different picture"
+PG-503,Google Play,2024-12-05,Android,"ui_change,folder_view",negative,High,N,N,I HATE the new organization of Collections. Now I have to click through multiple menus to find my folders
+PG-504,Google Play,2025-08-04,Android,ui_change,negative,High,N,N,"Removed blur option, portrait blur not as good"
+PG-505,Google Play,2025-08-12,Android,"ui_change,ai_gemini",negative,High,N,N,"AI framing wrong, manual controls limited"
+PG-506,Google Play,2025-10-15,Android,search_failure,negative,High,N,N,The search engine doesn't ever freaking work when trying to find a specific photo
+PG-507,Google Play,2026-02-17,Android,"search_failure,ui_change",negative,High,N,N,They removed the ability to search your photos if they aren't backed up
+PG-508,Google Play,2024-08-19,Android,"ui_change,folder_view",negative,High,N,N,The new update makes zero sense... all folder inside of folder?! I have bad memory
+PG-509,Google Play,2025-09-30,Android,ui_change,negative,High,N,N,Can't choose separate lock screen wallpaper
+PG-510,Google Play,2025-05-28,Android,"ui_change,face_recognition",negative,High,N,N,"Hate moments, albums not same level, facial detection bad"
+PG-511,Google Play,2025-09-17,Android,"search_failure,ai_gemini",negative,High,N,N,The new ai search rarely finds the photos i want in comparison to the old search
+PG-512,Google Play,2026-08-20,Android,folder_view,negative,High,N,N,"Can't send album to Google Photos, photos mixed in"
+PG-513,Google Play,2026-08-21,Android,"search_failure,data_loss",negative,High,Y,N,"I can't even find all of my photos, albums, etc... spent over 1 hr trying to find a photo"
+PG-514,Google Play,2026-09-02,Android,"search_failure,ai_gemini",negative,High,N,N,"This near perfect search function has been replaced by AI, which not only doesn't return the photos... acts as a stumbling block"
+PG-515,Google Play,2026-08-28,Android,"folder_view,ui_change",negative,High,N,N,"Why are my photos not showing up in the big main page? Only some are, the rest are on Recently Added"
+PG-516,Google Play,2026-08-22,Android,"face_recognition,folder_view",negative,High,N,N,"Can't edit location, wrong person/pet detection"
+PG-517,Google Play,2026-08-23,Android,ui_change,negative,High,N,N,"App freezes in collections, no support"
+PG-518,Google Play,2026-09-07,Android,"folder_view,ui_change",negative,High,N,N,Restored images are sitting on their original calendar dates instead of the top
+PG-519,Google Play,2026-08-30,Android,face_recognition,negative,High,N,N,I am paying for Google photo storage for 3TB.... yet there is no customer support... face recognition stopped working
+PG-520,Google Play,2026-08-16,Android,storage_quota,negative,High,N,N,After years of allowing us free storage... they changed their policy and I'm out of storage
+PG-521,Google Play,2026-08-28,Android,folder_view,negative,High,N,N,"Every single new photo arrives 'loose,' and I have to manually sort it into albums all over again"
+PG-522,Google Play,2026-08-13,Android,data_loss,negative,High,Y,N,"My photos are disappearing... many of my photos have vanished, including ones that were very important"
+PG-523,Google Play,2026-08-16,Android,ui_change,negative,High,N,N,"Stacks photos, can't unstack, AI unnecessary"
+PG-524,Google Play,2026-08-18,Android,"ui_change,folder_view",negative,High,N,N,"Can't delete from Google storage, incomprehensible organization"
+PG-525,Google Play,2026-08-27,Android,"storage_quota,folder_view",negative,High,N,N,Photos unmanageable after storage minimization
+PG-526,Google Play,2026-08-11,Android,folder_view,negative,High,N,N,"Can't select from anywhere but camera roll, can't add from Drive"
+PG-527,Google Play,2026-07-25,Android,ui_change,negative,High,N,N,"Edited photo unavailable for posting, processing takes hours"
+PG-528,Google Play,2026-07-10,Android,backup_issue,negative,High,N,N,"Downloads fail randomly, download purgatory"
+PG-529,Google Play,2026-07-14,Android,"folder_view,ui_change",negative,High,N,N,"Downloads whatever month or year they took the photo, which is annoying. It takes take me forever to find it"
+PG-530,Google Play,2026-08-04,Android,face_recognition,negative,High,N,N,"I can no longer assign faces, the primary reason I enjoyed the app"
+PG-531,Google Play,2026-08-05,Android,"folder_view,data_loss",negative,High,Y,N,"All of my albums are missing photos... when the photo is 'stacked' it only restores one photo. I have over 7,000 photos"
+PG-532,Google Play,2026-08-07,Android,ai_gemini,negative,High,N,Y,I'm not super fond of the AI stuff everywhere. I wish there was an opt-out toggle
+PG-533,Google Play,2026-09-08,Android,ui_change,negative,High,N,N,"Crashes editing video, cancelling subscription"
+PG-534,Google Play,2026-08-15,Android,ui_change,negative,High,N,N,"Photos super large/tiny, random mess, AI deciding"
+PG-535,Google Play,2026-08-27,Android,ui_change,negative,High,N,N,"Won't let you set up how you want, separate folders"
+PG-536,Google Play,2026-09-07,Android,folder_view,negative,High,N,N,"Media Picker broken, cloud library won't populate"
+PG-537,Google Play,2026-09-01,Android,storage_quota,negative,High,N,N,"The app completely inundates you with annoying popups, reminding you that you're out of storage"
+PG-538,Google Play,2026-09-02,Android,backup_issue,negative,High,N,N,"Syncing issues, can't see cloud photos, support advice ridiculous"
+PG-539,Google Play,2026-08-30,Android,face_recognition,negative,High,N,N,The app stops labeling photos of a certain person and won't even let me manually label it
+PG-540,Google Play,2026-08-19,Android,"privacy,folder_view",negative,High,N,N,Locked photos can't be shared/downloaded
+PG-541,Google Play,2026-07-08,Android,"ai_gemini,privacy",negative,High,N,N,Photos is forcing AI generated 'creations' that use your photos... no way to disable it
+PG-542,Google Play,2026-08-08,Android,search_failure,negative,High,N,N,With nearly 60k photos I can no longer search for SOME family and friends names... app actually erases what I type
+PG-543,Google Play,2026-07-11,Android,"ui_change,folder_view",negative,High,N,N,All photos/videos are now shown in a haphazard mess... This app came with the phone and cannot be deleted
+PG-544,Google Play,2026-08-13,Android,backup_issue,negative,High,N,N,"Backup creates doubles/triples, forced to backup all"
+PG-545,Google Play,2026-08-16,Android,ui_change,negative,High,N,N,"Album covers changed, instructions disappeared"
+PG-546,Google Play,2026-08-14,Android,"ui_change,folder_view",negative,High,N,N,"Splits photos arbitrarily, popups, separate albums"
+PG-547,Google Play,2026-07-06,Android,"face_recognition,ui_change",negative,High,N,N,"Hijacked pictures, face group screen, can't decline"
+PG-548,Google Play,2026-07-29,Android,ui_change,negative,High,N,N,"Thumbnails different sizes, social media wannabe"
+PG-549,Google Play,2026-07-20,Android,face_recognition,negative,High,N,N,Some photos don't have my face highlighted... There's no way to manually add a face
+PG-550,Google Play,2026-07-17,Android,"ui_change,folder_view",negative,High,N,N,"Backed up photos disorganized, not grouped by month"
+PG-551,Google Play,2026-07-03,Android,ui_change,negative,High,N,N,"Motion preview annoying, can't stop"
+PG-552,Google Play,2026-07-29,Android,ui_change,negative,High,N,N,"Can't crop without shrinking, edit wonky"
+PG-553,Google Play,2026-07-18,Android,"privacy,folder_view",negative,High,N,N,"Too focused on shareability, want folders hidden"
+PG-554,Google Play,2026-08-07,Android,ui_change,negative,High,N,N,"Won't save edits, can't crop/send, July update broke"
+PG-555,Google Play,2026-07-10,Android,"data_loss,backup_issue",negative,High,Y,N,"Deleting from device deletes from photos, older photos not showing"
+PG-556,Google Play,2026-08-10,Android,ui_change,negative,High,N,N,"UI changed for zero reason, save errors, magic editor mediocre"
+PG-557,Google Play,2026-07-20,Android,"data_loss,backup_issue",negative,High,Y,N,"Saves to cloud, removes from device, no contact"
+PG-558,Google Play,2026-07-27,Android,backup_issue,negative,High,N,N,"App invents options, won't follow directives"
+PG-559,Google Play,2026-07-18,Android,ui_change,negative,High,N,N,"Memories tiles are showing photos at the top... I can no longer select by day, week, month"
+PG-560,Google Play,2026-07-19,Android,"ai_gemini,privacy",negative,High,N,N,Please stop the use of our photos for the pointless music videos... It has a white haze if you crop the photo
+PG-561,Google Play,2026-08-07,Android,"data_loss,workaround",negative,High,Y,Y,In the app it only shows about 1/20 of the photos and videos I actually have... ive started using terracotta
+PG-562,Google Play,2026-06-13,Android,"search_failure,ui_change",negative,High,N,N,"Can't access edited photos, can't find photos, magic eraser doesn't work"
+PG-563,Google Play,2026-04-20,Android,ui_change,negative,High,N,N,"Too many memories notifications, popup holds up app"
+PG-564,Google Play,2026-04-28,Android,"search_failure,ai_gemini",negative,High,N,N,"AI search is slower, less accurate, and more presumptuous than the version we had before"
+PG-565,Google Play,2026-03-25,Android,ui_change,negative,High,N,N,"Crop gone, stupid frame, worse every update"
+PG-566,Google Play,2025-06-14,Android,face_recognition,negative,High,N,N,Facial recognition! This used to work well but has become a complete mess... Random people in backgrounds are being assigned key family members
+PG-567,Google Play,2026-03-07,Android,ui_change,negative,High,N,N,"March update ruined editing, can't re-edit, saved copy hard to find"
+PG-568,Google Play,2025-10-09,Android,ui_change,negative,High,N,N,"Google Lens moved, editor trash, albums opens search"
+PG-569,Google Play,2025-08-26,Android,ui_change,negative,High,N,N,"No perspective correction, can't select frame from motion photos"
+PG-570,Google Play,2025-09-18,Android,ui_change,negative,High,N,N,"Editing terrible, cropping difficult, no rotate frame"
+PG-571,Google Play,2025-03-23,Android,backup_issue,negative,High,N,N,Backup/albums/sync not working across devices
+PG-572,Google Play,2025-01-29,Android,ui_change,negative,High,N,N,"Every edit requires save copy, increases workload"
+PG-573,Google Play,2025-06-09,Android,"positive_experience,workaround",positive,High,N,Y,They added search to the Add To Album popup! Someone *is* reading all those feedbacks I send!!!
+PG-574,Google Play,2025-02-23,Android,"search_failure,ai_gemini",negative,High,N,N,Loved Google Photos... Now the search has changed to AI and it's terrible
+PG-575,Google Play,2024-10-17,Android,folder_view,negative,High,N,N,"Can't merge labels, can't import from Drive, duplicates, no select all"
+PG-576,Google Play,2025-08-04,Android,ui_change,negative,High,N,N,"AI replacement got rid of perspective crop, useless"
+PG-577,Google Play,2025-09-06,Android,ui_change,negative,High,N,N,"AI junk, removed reshape functions, auto frame useless"
+PG-578,Google Play,2024-09-30,Android,"search_failure,folder_view",negative,High,N,N,"Finding photos varies, latest changes made it difficult by names"
+PG-579,Google Play,2025-02-23,Android,backup_issue,negative,High,N,N,"Quit asking to backup, don't want all photos backed up"
+PG-580,Google Play,2025-01-02,Android,backup_issue,negative,High,N,N,"Out of storage display, auto backup without say so"
+PG-581,Google Play,2025-07-23,Android,positive_experience,positive,High,N,N,"One of the best apps for storing and organizing photos. It automatically backs up your images, offers powerful search"
+PG-582,Google Play,2025-06-24,Android,storage_quota,negative,High,N,N,Having the app downloaded eats over half of your 'free 15 GB' of storage
+PG-583,Google Play,2024-11-06,Android,face_recognition,negative,High,N,N,It won't let me merge peoples labels... I have many groupings named the same
+PG-584,Google Play,2025-09-02,Android,ui_change,negative,High,N,N,"UI downgrade, cropping clunkier, AI tools unwanted"
+PG-585,Google Play,2025-08-05,Android,ui_change,negative,High,N,N,"Perspective tool gone, essential for architecture"
+PG-586,Google Play,2025-09-25,Android,ui_change,negative,High,N,N,"Hate latest update, scrolling to edit, menus separated"
+PG-587,Google Play,2025-02-13,Android,backup_issue,negative,High,N,N,"Keeps insisting on backup, defaults to yes"
+PG-588,Google Play,2025-05-25,Android,ui_change,negative,High,N,N,"Widgets weird after OneUI 7, photos don't resize"
+PG-589,Google Play,2024-10-25,Android,folder_view,negative,High,N,N,"Favorites removed, can't create own folders, forced backup"
+PG-590,Google Play,2025-05-23,Android,"free_up_space,data_loss",negative,High,Y,N,"When I deleted from google photos to free up space, it also deleted the same items from my phone"
+PG-591,Google Play,2024-08-22,Android,folder_view,negative,High,N,N,"Random Places folder first, can't delete/move"
+PG-592,Google Play,2024-09-04,Android,search_failure,negative,High,N,N,All searches return no results. App no longer grabs search terms from the 'commenting' area
+PG-593,Google Play,2025-05-19,Android,face_recognition,negative,High,N,N,"Facial recognition got SO bad... within ten pictures of clear faces, it'll recognize 10% or even less"
+PG-594,Google Play,2025-06-23,Android,ui_change,negative,High,N,N,"New organization less user friendly, missing files"
+PG-595,Google Play,2024-09-17,Android,storage_quota,negative,High,N,N,"Aggressive storage sales tactics, which keep re-uploading images I removed from my online storage"
+PG-596,Google Play,2025-07-24,Android,ui_change,negative,High,N,N,"App slow, can't export to Photoshop Express, cropping harder"
+PG-597,Google Play,2025-02-11,Android,"data_loss,backup_issue",negative,High,Y,N,Asked the app to back up my photos to clear up space and it seems a handful had been erased entirely
+PG-598,Google Play,2024-08-30,Android,"ui_change,folder_view",negative,High,N,N,Collections? Albums. Memories useless. On this device ridiculous
+PG-599,Google Play,2025-04-15,Android,"privacy,feature_request",mixed,High,N,N,"Want private album/security feature, MMS attach fails"
+PG-600,Google Play,2024-12-16,Android,"ui_change,folder_view",negative,High,N,N,"Sharing buried 5 levels deep, conversations hidden"
+PG-601,Google Play,2025-04-28,Android,"data_loss,backup_issue",negative,High,Y,N,YEARS WORTH OF PHOTOS GONE!! There is NO separation between cloud save and local files
+PG-602,Google Play,2024-11-30,Android,ui_change,negative,High,N,N,"Broken image preview in texts, Google ignoring"
+PG-603,Google Play,2025-03-25,Android,positive_experience,positive,High,N,N,"Thank you for update, locked folder backup alert"
+PG-604,Google Play,2026-09-02,Android,"ui_change,workaround",negative,High,N,Y,I haven't updated the app for at least a year... Finally I was forced to do so
+PG-605,Google Play,2026-09-07,Android,folder_view,negative,High,N,N,I just noticed there are 'Automatic albums'... the automatic sorting isn't even correct 90% of the time
+PG-606,Google Play,2026-08-29,Android,"folder_view,feature_request",mixed,High,N,N,"Want unsorted photos view, album labels, tag system"
+PG-607,Google Play,2026-08-29,Android,ui_change,negative,High,N,N,The latest version doesn't seem to order pictures chronologically by default any more
+PG-608,Google Play,2026-08-24,Android,"data_loss,face_recognition",negative,High,Y,N,"Deleted memories, AI sorts people wrong, can't manually insert"
+PG-609,Google Play,2026-09-06,Android,"feature_request,folder_view",mixed,High,N,N,"Motorola user, no built-in gallery, need flip, order reverse"
+PG-610,Google Play,2026-08-15,Android,"folder_view,data_loss",negative,High,Y,N,"Makes copies, duplicates/triplicates, no duplicate removal"
+PG-611,Google Play,2026-08-31,Android,"data_loss,free_up_space",negative,High,Y,N,"Delete from app deletes from phone, lost precious photos"
+PG-612,Google Play,2026-08-24,Android,storage_quota,negative,High,N,N,I truly hate how pushy the app is when you run out of storage... There needs to be an option to turn off the reminder
+PG-613,Google Play,2026-08-29,Android,"face_recognition,feature_request",mixed,High,N,N,It would be nice if we get the option to enlist faces manually as well
+PG-614,Google Play,2026-08-25,Android,ui_change,negative,High,N,N,"UI confusing, want gallery app, share only 3 of 30"
+PG-615,Google Play,2026-08-13,Android,ui_change,negative,High,N,N,"Want small thumbnails, random large photos annoying"
+PG-616,Google Play,2026-08-12,Android,backup_issue,negative,High,N,N,"Keeps insisting on backup, disable app"
+PG-617,Google Play,2026-09-02,Android,storage_quota,positive,Medium,N,N,"Need data/wifi to view, small storage, add 5GB"
+PG-618,Google Play,2026-07-17,Android,ui_change,negative,High,N,N,"Lags loading photos, undo whatever you did"
+PG-619,Google Play,2026-09-13,Android,ui_change,negative,High,N,N,Copy paste edit settings left out
+PG-620,Google Play,2026-07-17,Android,"ui_change,folder_view",negative,High,N,N,Now every few rows there is a random photo 6 times the size of the rest... makes it much harder to find the photo I want
+PG-621,Google Play,2026-06-24,Android,"search_failure,ui_change",negative,High,N,N,They removed the ability to see photo information... replaced with an AI slop search bar
+PG-622,Google Play,2026-07-07,Android,ui_change,negative,High,N,N,"Edited photo no longer shows in social media, workaround delete/redownload"
+PG-623,Google Play,2026-07-10,Android,ui_change,negative,High,N,N,"Horrible layout, can't see when photos taken, floating bubble"
+PG-624,Google Play,2026-07-19,Android,ui_change,negative,High,N,N,"Homogeneous mess, no separation, AI"
+PG-625,Google Play,2026-08-17,Android,ai_gemini,negative,High,N,N,They also add gemini pro features inside the app so that I can accidentally click on the payment button
+PG-626,Google Play,2026-08-19,Android,"face_recognition,folder_view",negative,High,N,N,"Tedious, slow tagging, can't manually add, can't multi-select"
+PG-627,Google Play,2026-07-22,Android,backup_issue,negative,High,N,N,"Photos won't show in app, work with older version, v7.83 problem"
+PG-628,Google Play,2026-08-12,Android,ui_change,negative,High,N,N,"Wallpaper doesn't cover screen, zooms and destroys art"
+PG-629,Google Play,2026-09-05,Android,"data_loss,privacy",negative,High,Y,N,Suddenly I found my locked folder empty and all my data disappeared... I HAVEN'T CLEARED/UNINSTALL app
+PG-630,Google Play,2026-08-30,Android,"backup_issue,folder_view",negative,High,N,N,"Slow upload, can't create link, can't save location"
+PG-631,Google Play,2026-08-23,Android,ui_change,positive,Medium,N,N,"Easy sharing, music with vocals distracting"
+PG-632,Google Play,2026-09-01,Android,"backup_issue,data_loss",negative,High,Y,N,"Restored photos seen as camera roll, duplicate backups, won't load"
+PG-633,Google Play,2026-09-07,Android,storage_quota,positive,Medium,N,N,"Upgraded phone, issue fixed, 4 stars"
+PG-634,Google Play,2026-08-20,Android,"ui_change,folder_view",negative,High,N,N,Most of the photos are in the usual square grid but then random ones will be blown up bigger
+PG-635,Google Play,2026-09-09,Android,"free_up_space,data_loss",negative,High,Y,N,I clicked free up space out of curiosity... It forcefully deleted pictures from my phone
+PG-636,Google Play,2026-08-31,Android,face_recognition,negative,High,N,N,"It fails to recognise pets in a lot of photos... if I just go through People and Pets, photos do not appear"
+PG-637,Google Play,2026-07-07,Android,backup_issue,negative,High,N,N,"Download to gallery never works, can't redownload"
+PG-638,Google Play,2026-06-27,Android,"privacy,feature_request",mixed,High,N,N,Locked folder deletion needs restore window
+PG-639,Google Play,2026-09-03,Android,folder_view,negative,High,N,N,"Removed ability to create albums on phone, stores elsewhere"
+PG-640,Google Play,2026-08-21,Android,"ai_gemini,positive_experience",positive,Medium,N,N,love it! Google Photos has been my go to... AI can definitely flub some photos or assignments
+PG-641,Google Play,2026-08-14,Android,ui_change,negative,High,N,N,"Unblur feature bugged, lines appear"
+PG-642,Google Play,2026-08-18,Android,ui_change,negative,High,N,N,"Delete bar stays too long, status covers screen"
+PG-643,Google Play,2026-08-21,Android,"folder_view,ui_change",negative,High,N,N,"Saving photos/albums hard, triplicate, purple squares"
+PG-644,Google Play,2026-08-18,Android,folder_view,negative,High,N,N,"Scans all media folders, want to exclude Downloads"
+PG-645,Google Play,2026-08-10,Android,"ui_change,data_loss",negative,High,Y,N,"Edited photos disappear, appear twice, five identical"
+PG-646,Google Play,2026-07-15,Android,ui_change,negative,High,N,N,"Must keep app open to save edit, can't handle speed up"
+PG-647,Google Play,2026-07-30,Android,"ui_change,folder_view",negative,High,N,N,"Horrible layout, odd photos extra large, not chronological"
+PG-648,Google Play,2026-07-31,Android,"ui_change,workaround",negative,High,N,Y,I disabled auto updates and stripped the app back to the factory version
+PG-649,Google Play,2026-07-20,Android,"ui_change,folder_view",negative,High,N,N,The photo grid used to be separated day by day with a checkbox to select a whole day's photos
+PG-650,Google Play,2026-08-06,Android,face_recognition,negative,High,N,N,The face tagging feature is poor and it's had the same issues for years. Unable to tag faces it doesn't detect
+PG-651,Google Play,2026-07-08,Android,folder_view,negative,High,N,N,"Places folder vanishes, Documents folder vanishes"
+PG-652,Google Play,2026-06-27,Android,"feature_request,folder_view",negative,High,N,N,"No tag support, collages add watermark, Quick Edit broken"
+PG-653,Google Play,2026-07-27,Android,"ui_change,folder_view",negative,High,N,N,"Downloaded pic saved in 2012, worse after update"
+PG-654,Google Play,2026-08-03,Android,ui_change,negative,High,N,N,"Can't slide to select, save copy mandatory, modern UI awkward"
+PG-655,Google Play,2026-07-23,Android,"backup_issue,folder_view",negative,High,N,N,"Backup makes no sense, photos disappear from albums, other apps can't access"
+PG-656,Google Play,2026-08-04,Android,ui_change,negative,High,N,N,"Removed portrait blur/focal point tool, stuck"
+PG-657,Google Play,2026-08-12,Android,positive_experience,positive,High,N,N,Excellent Photo Management App!... I especially like how easily I can find old photos
+PG-658,Google Play,2026-07-03,Android,face_recognition,negative,High,N,N,"Can't create/edit people, error message"
+PG-659,Google Play,2026-08-16,Android,"folder_view,ui_change",negative,High,N,N,"Creating album duplicates, can't see favorites, can't order"
+PG-660,Google Play,2026-08-16,Android,"folder_view,backup_issue",negative,High,N,N,"WhatsApp photos separate album, backs up again, can't change"
+PG-661,Google Play,2026-08-30,Android,data_loss,negative,High,Y,N,6 years of photos and videos were completely removed after the recent update
+PG-662,Google Play,2026-09-06,Android,ui_change,negative,High,N,N,"GIF sending blocked in games, needs fixing"
+PG-663,Google Play,2026-09-03,Android,"backup_issue,data_loss",negative,High,Y,N,"No option to redownload all, lost photos thinking backed up"
+PG-664,Google Play,2026-08-20,Android,storage_quota,negative,High,N,N,Google got money hungry and created Google One storage... now I have to pay for storage?
+PG-665,Google Play,2026-09-05,Android,ui_change,negative,High,N,N,"Highlight video broken, goes back to template"
+PG-666,Google Play,2026-08-15,Android,ui_change,negative,High,N,N,"Menus cover half screen, can't see what doing"
+PG-667,Google Play,2026-09-01,Android,face_recognition,negative,High,N,N,Face grouping is getting worse... pictures with very clear faces aren't getting grouped
+PG-668,Google Play,2026-09-09,Android,"ui_change,workaround",negative,High,N,Y,used an apk to download version 7.90... recommend others do the same
+PG-669,Google Play,2026-08-27,Android,positive_experience,positive,High,N,N,"Excellent app for storing, organizing, and backing up photos... search and automatic organization features are very useful"
+PG-670,Google Play,2026-09-04,Android,ui_change,negative,High,N,N,"Unable to separate folders, invasion of privacy"
+PG-671,Google Play,2026-08-24,Android,"backup_issue,storage_quota",negative,High,N,N,"Useless for backup, can't download 200GB without PC"
+PG-672,Google Play,2026-08-31,Android,"privacy,folder_view",negative,High,N,N,"Unable to separate folders, invasion of privacy, client photoshoots"
+PG-673,Google Play,2026-09-05,Android,"storage_quota,backup_issue",negative,High,N,N,This caused to stop sending me any emails... Why do you guys need to make it so hard to unsync google photos
+PG-674,Google Play,2026-09-01,Android,ui_change,negative,High,N,N,"Slow upload, magic eraser never completes"
+PG-675,Google Play,2026-09-04,Android,ui_change,negative,High,N,N,"Used to be great, now garbage, uninstall reinstall"
+PG-676,Google Play,2026-09-08,Android,"backup_issue,folder_view",negative,High,N,N,"Photos duplicated, temporarily disappear, Pixel issues"
+PG-677,Google Play,2026-08-25,Android,"feature_request,folder_view",mixed,High,N,N,Preserve edited dates and GPS in EXIF/XMP
+PG-678,Google Play,2026-08-25,Android,ui_change,negative,High,N,N,"Dynamic photo view awful, stopped me ordering 11 pro"
+PG-679,Google Play,2026-09-04,Android,"data_loss,folder_view",negative,High,Y,N,"Video of cats lost, albums archived, disappear"
+PG-680,Google Play,2026-08-22,Android,"data_loss,face_recognition",negative,High,Y,N,Stop deleting my photos without my permission!... pet recognition especially black cats
+PG-681,Google Play,2026-08-18,Android,ui_change,negative,High,N,N,AI enhanced editing ends up with lines through photo
+PG-682,Google Play,2026-08-30,Android,backup_issue,negative,High,N,N,"Can't download videos, unsupported media"
+PG-683,Google Play,2026-09-05,Android,backup_issue,negative,High,N,N,"Backs up albums even with backup off, shoves cloud backup"
+PG-684,Google Play,2026-09-08,Android,"data_loss,ui_change",negative,High,Y,N,"App never opens, photos missing, white square, recovery steps"
+PG-685,Google Play,2026-08-23,Android,"ai_gemini,privacy",negative,High,N,N,Images are being fed into ai without my consent. they're ugly
+PG-686,Google Play,2026-08-27,Android,ui_change,positive,Medium,N,N,Update. I can separate by date again!!! Thank you Google photos!!
+PG-687,Google Play,2026-09-04,Android,folder_view,negative,High,N,N,"Unable to share, Collections blank, no photos yet"
+PG-688,Google Play,2026-08-31,Android,face_recognition,negative,High,N,N,Cannot create new faces or add photos to faces. Several months now with no feedback
+PG-689,Google Play,2026-09-01,Android,backup_issue,negative,High,N,N,Removed ability to easily back up from phone and computer
+PG-690,Google Play,2026-09-07,Android,folder_view,negative,High,N,N,"Everything in a folder, want all images on one screen"
+PG-691,Google Play,2026-09-03,Android,ui_change,negative,High,N,N,"Music over memories annoying, can't turn off"
+PG-692,Google Play,2026-08-25,Android,backup_issue,negative,High,N,N,"Stop hounding me to backup, have own backup"
+PG-693,Google Play,2026-09-05,Android,feature_request,mixed,High,N,N,"Want to save only after certain time, trim on camera and photos"
+PG-694,Google Play,2026-09-08,Android,"feature_request,ui_change",mixed,High,N,N,"Want more freedom to edit with no AI, create stickers"
+PG-695,Google Play,2026-08-24,Android,"search_failure,ai_gemini",positive,Medium,N,N,"Love the new Ai additional help in the search bar. However, when I request a search... it comes up empty"
+PG-696,Google Play,2026-09-06,Android,"free_up_space,data_loss",negative,High,Y,N,I didn't know that deleting from google photos also deletes from my local gallery
+PG-697,Google Play,2026-09-08,Android,"ai_gemini,privacy",negative,High,N,N,"App creates slideshows of mom before she passed, painful"
+PG-698,Google Play,2026-08-31,Android,ui_change,negative,High,N,N,"Can't edit videos longer than 1min, unable to save"
+PG-699,Google Play,2026-09-03,Android,"ui_change,folder_view",negative,High,N,N,"Can't open HEIC, can't rearrange albums, most albums not showing"
+PG-700,Google Play,2026-08-25,Android,storage_quota,negative,High,N,N,"If im at 90 % capacity, then delete stuff... if clearing up space doesn't actually work, thats a issue"
+PG-701,Google Play,2026-08-29,Android,ui_change,positive,Medium,N,N,"Restored photos issue was GrapheneOS, not stock Android"
+PG-702,Google Play,2026-09-05,Android,folder_view,negative,High,N,N,"Photo Picker won't work for local files, folder disappears"
+PG-703,Google Play,2026-08-19,Android,folder_view,negative,High,N,N,"Move pictures to album, deleted from main photos, search sucks"
+PG-704,Google Play,2026-08-30,Android,"backup_issue,data_loss",negative,High,Y,N,"Backup off turns itself on, delete from Google deletes from device"
+PG-705,Google Play,2026-08-23,Android,"ui_change,folder_view",negative,High,N,N,"Miss old separation by dates, continuous scrolling messy"
+PG-706,Google Play,2026-09-08,Android,ui_change,negative,High,N,N,"Slow, freezing, blank photos, 30-40 seconds"
+PG-707,Google Play,2026-09-01,Android,"backup_issue,data_loss",negative,High,Y,N,"Removes downloaded photos from backup, turned off freeing space"
+PG-708,Google Play,2026-08-24,Android,folder_view,negative,High,N,N,Screenshots folder shows 'photos missing from search Turn on backup'
+PG-709,Google Play,2026-09-09,Android,"folder_view,data_loss",negative,High,Y,N,"Can't see old pictures, albums gone, web version fine"
+PG-710,Google Play,2026-09-06,Android,"face_recognition,search_failure",negative,High,N,N,"Facial organisation manual rearrangement slow, search never working"
+PG-711,Google Play,2026-09-08,Android,ui_change,negative,High,N,N,"Edit button missing on videos, back then gone again"
+PG-712,Google Play,2026-09-11,Android,"backup_issue,data_loss",negative,High,Y,N,"Fake backup sync, delete deletes from phone"
+PG-713,Google Play,2026-09-03,Android,"ai_gemini,ui_change",negative,High,N,N,Ruined the app bloating it with unwanted AI features... switched to a different photo gallery app
+PG-714,Google Play,2026-08-23,Android,ui_change,negative,High,N,N,"Worst app ever, no support, edits don't save, paying 1TB"
+PG-715,Google Play,2026-08-19,Android,"ai_gemini,privacy",negative,High,N,N,"Invasive AI garbage scanning all your private photos. even with backup turned on, there is no way to view ALL your photos"
+PG-716,Google Play,2026-08-16,Android,face_recognition,negative,High,N,N,"Face recognition badly implemented in UK, resolution is turn off/on"
+PG-717,Google Play,2026-08-29,Android,privacy,positive,Medium,N,N,"Happy with everything, pay for 3rd party data security"
+PG-718,Google Play,2026-09-03,Android,backup_issue,negative,High,N,N,No sync button to restore backup on new device
+PG-719,Google Play,2026-08-31,Android,backup_issue,negative,High,N,N,"Must keep app open to back up, screen off restarts"
+PG-720,Google Play,2026-09-07,Android,"data_loss,privacy",negative,High,Y,N,"Reset phone, locked folder emptied, don't trust"
+PG-721,Google Play,2026-08-27,Android,ui_change,negative,High,N,N,"Difficult to get to animations, moved Add to album"
+PG-722,Google Play,2026-08-20,Android,ui_change,negative,High,N,N,"Motion photos playback always on, nightmare selecting"
+PG-723,Google Play,2026-08-28,Android,folder_view,negative,High,N,N,"Evasive, takes over SD card storage, forces Google photos"
+PG-724,Google Play,2026-08-31,Android,ui_change,negative,High,N,N,"Crop creates duplicate, edited version appears days later"
+PG-725,Google Play,2026-09-04,Android,"privacy,backup_issue",negative,High,N,N,"Editing offline broken, uploads without backup on"
+PG-726,Google Play,2026-08-18,Android,"ui_change,folder_view",negative,High,N,N,"Latest update chooses random photo to enlarge, hard to see order"
+PG-727,Google Play,2026-08-23,Android,"free_up_space,data_loss",negative,High,Y,N,Free up space option... photos were deleted from both my phone's internal storage and Google Photos
+PG-728,Google Play,2026-08-23,Android,"feature_request,folder_view",mixed,High,N,N,"Can't separate pictures from videos, want separate tabs"
+PG-729,Google Play,2026-08-20,Android,"ui_change,workaround",negative,High,N,Y,Google removed the ability to zoom out to uniform tiny thumbnails... I've had to roll back to an old version
+PG-730,Google Play,2026-08-28,Android,ai_gemini,negative,High,N,N,Enough with the frequent modals trying to get me to activate Gemini so I can do 'AI' nonsense
+PG-731,Google Play,2026-09-07,Android,privacy,negative,High,N,N,"No password protection for Google Photos, exposed on desktop"
+PG-732,Google Play,2026-09-03,Android,ui_change,negative,High,N,N,"Magic eraser trash, processing 5-10s"
+PG-733,Google Play,2026-09-06,Android,backup_issue,negative,High,N,N,"5G UC, can pull Himalayas faster than 2GB video"
+PG-734,Google Play,2026-08-20,Android,ui_change,negative,High,N,N,"Edited photo not showing in Google Gallery, hard to sort"
+PG-735,Google Play,2026-08-26,Android,"folder_view,backup_issue",negative,High,N,N,"Screenshot not in photos, save to downloads, always backs up"
+PG-736,Google Play,2026-08-27,Android,ai_gemini,negative,High,N,N,"Photo-to-video filter strict, blocked fully clothed wife"
+PG-737,Google Play,2026-09-10,Android,"ai_gemini,workaround",negative,High,N,Y,Recommended: Visionstoryai
+PG-738,Google Play,2026-08-27,Android,"ui_change,folder_view",negative,High,N,N,"New updates horrible, can't select all, editing popups"
+PG-739,Google Play,2026-08-24,Android,backup_issue,negative,High,N,N,"Back Up on by default, filling storage, sneaky"
+PG-740,Google Play,2026-08-28,Android,ui_change,negative,High,N,N,"Magic eraser slow, warps image around selection"
+PG-741,Google Play,2026-08-25,Android,ui_change,negative,High,N,N,Terrible update to library layout. Things used to be sorted chronologically left to right
+PG-742,Google Play,2026-08-26,Android,ui_change,negative,High,N,N,"Background music on memories worst idea, garbage"
+PG-743,Google Play,2026-08-09,Android,positive_experience,positive,High,N,N,I especially like how easy it is to find old memories and access them across devices
+PG-744,Google Play,2026-07-08,Android,ui_change,negative,High,N,N,"New update caused photos not in grid, bad slideshow"
+PG-745,Google Play,2026-08-16,Android,data_loss,negative,High,Y,N,"Recent photos/videos missing, backup was on, can't find"
+PG-746,Google Play,2026-08-27,Android,ui_change,negative,Medium,N,N,"Updates every couple days, 82mb, same description"
+PG-747,Google Play,2026-06-21,Android,"search_failure,ai_gemini",negative,High,N,N,Impossible to search for a photo. AI is just hopeless... not a single photo is found even through date or AI
+PG-748,Google Play,2026-09-09,Android,"backup_issue,data_loss",negative,High,Y,N,"Selected 28 to backup, started backing up 11,000"
+PG-749,Google Play,2026-08-24,Android,"folder_view,storage_quota",negative,High,N,N,"Albums require cloud storage, no warning, force pay"
+PG-750,Google Play,2026-09-07,Android,face_recognition,negative,High,N,N,Has not id'ed a person in months despite being on latest version and reaching out for support
+PG-751,Google Play,2026-08-23,Android,"data_loss,ui_change",negative,High,Y,N,"App keeps deleting photos, transfer to SD card, lost special pictures"
+PG-752,Google Play,2026-07-02,Android,positive_experience,positive,High,N,N,Easy to use and plenty of storage space... no complaints so far from Google Photos
+PG-753,Google Play,2026-08-18,Android,"backup_issue,data_loss",negative,High,Y,N,"Lost thousands of photos, deleted from Google Photos, gone from device"
+PG-754,Google Play,2026-08-21,Android,backup_issue,negative,High,N,N,"Auto backup on, still manual backup, 40000 pending"
+PG-755,Google Play,2026-08-23,Android,ui_change,negative,High,N,N,"Every update worse, Pixel 11 can't edit or save videos, crashes"
+PG-756,Google Play,2026-08-14,Android,face_recognition,negative,High,N,N,"Photos not categorized by face, photo labelling not working"
+PG-757,Google Play,2026-08-13,Android,"ui_change,folder_view",negative,High,N,N,"Automatically sorts into folders I don't want, hidden places"
+PG-758,Google Play,2026-08-15,Android,"privacy,folder_view",negative,High,N,N,"Locked folder not accessible, important pictures"
+PG-759,Google Play,2026-07-15,Android,ui_change,negative,High,N,N,"Navigating videos difficult, jumps minutes, screenshots"
+PG-760,Google Play,2026-09-08,Android,"search_failure,ui_change",negative,High,N,N,"Messed up search function, 3 more unnecessary steps"
+PG-761,Google Play,2026-08-20,Android,ui_change,negative,High,N,N,"Editor no longer working, broken images, doesn't show"
+PG-762,Google Play,2026-08-27,Android,ai_gemini,negative,High,N,N,"Like everything else Google makes, Photos is being ruined by AI"
+PG-763,Google Play,2026-08-29,Android,"folder_view,storage_quota",negative,High,N,N,"Auto album feature, no option, Receipt folder nonsense"
+PG-764,Google Play,2026-08-18,Android,folder_view,negative,High,N,N,"Allow use of internal storage, don't force backup"
+PG-765,Google Play,2026-09-10,Android,ui_change,negative,High,N,N,"Dynamic resizing horrible, switching to Samsung gallery"
+PG-766,Google Play,2026-08-12,Android,ai_gemini,negative,High,N,N,"AI ad pops up, disabled AI features, annoying"
+PG-767,Google Play,2026-07-28,Android,"free_up_space,data_loss",negative,High,Y,N,Free up space moved nearly ALL photos from gallery to Google gallery
+PG-768,Google Play,2026-06-24,Android,ui_change,positive,Medium,N,N,"Day grouping back, new look, best photo app"
+PG-769,Google Play,2026-09-07,Android,"privacy,backup_issue",negative,High,N,N,"Uploaded 4.5GB without permission, expensive data"
+PG-770,Google Play,2026-09-03,Android,ui_change,negative,High,N,N,"Moved to trash bar large ugly black, blocks view"
+PG-771,Google Play,2026-09-01,Android,"folder_view,ui_change",negative,High,N,N,"Automatically stores in Numerous folders, scattered"
+PG-772,Google Play,2026-09-08,Android,"backup_issue,feature_request",negative,High,N,N,"Needs selective backup feature, separate toggles"
+PG-773,Google Play,2026-08-24,Android,storage_quota,negative,High,N,N,I can delete absolutely all of my gmail emails and thousand of photos and videos and somehow the storage is still '99% full'
+PG-774,Google Play,2026-08-24,Android,ai_gemini,negative,High,N,N,"AI content generated, no way to disable, dead dog"
+PG-775,Google Play,2026-07-25,Android,backup_issue,negative,High,N,N,"Settings not default, harassed to finish setup, GenAI bloatware"
+PG-776,Google Play,2026-08-25,Android,ui_change,negative,High,N,N,Can't play Linear PCM video after background updates
+PG-777,Google Play,2026-08-22,Android,ui_change,negative,Medium,N,N,"Updates every other day, 80-90 MB, eating memory"
+PG-778,Google Play,2026-08-27,Android,folder_view,negative,High,N,N,"Pictures stored in drive, pour resolution"
+PG-779,Google Play,2026-08-31,Android,ui_change,negative,High,N,N,"Timeline doesn't show all photos, horror show"
+PG-780,Google Play,2026-08-22,Android,ui_change,negative,Medium,N,N,"Data price gouging, buggy updates"
+PG-781,Google Play,2026-07-12,Android,folder_view,negative,High,N,N,"Albums jumbled, missing photos, dates out of alignment"
+PG-782,Google Play,2026-08-28,Android,data_loss,negative,High,Y,N,"Photos go missing (hundreds of photos, randomly!). Support says this happens and there is nothing they can do"
+PG-783,Google Play,2026-08-25,Android,data_loss,negative,High,Y,N,Why can't I find more than half of my photos?... TOTALLY UNRELIABLE!!!
+PG-784,Google Play,2026-09-01,Android,face_recognition,negative,High,N,N,Randomly re-tagged most of my cat photos as the wrong cat mid August
+PG-785,Google Play,2026-09-01,Android,ui_change,negative,High,N,N,It was perfectly fine before with around 4 pictures per row and showing the date
+PG-786,Google Play,2026-08-30,Android,folder_view,negative,High,N,N,"Can't copy photos from phone to PC, one line at a time"
+PG-787,Google Play,2026-08-20,Android,"privacy,folder_view",negative,High,N,N,"Locked Folder missing after update, important photos"
+PG-788,Google Play,2026-09-04,Android,backup_issue,negative,High,N,N,"Stuck on 'getting ready to back up photos', Samsung tablet"
+PG-789,Google Play,2026-08-01,Android,"ui_change,folder_view",negative,High,N,N,"Select all for today option broken, select one by one, pushing backup"
+PG-790,Google Play,2026-07-09,Android,"folder_view,storage_quota",negative,High,N,N,albums REQUIRE cloud storage. it never mentions this anywhere in the app
+PG-791,Google Play,2026-08-28,Android,ui_change,negative,High,N,N,"Save separately can't replace, rotate with two finger twist"
+PG-792,Google Play,2026-08-27,Android,ui_change,negative,High,N,N,Won't let me share single photo to messaging app
+PG-793,Google Play,2026-08-05,Android,"ui_change,folder_view",negative,High,N,N,"Grid view random large/elongated, edit tools switch order"
+PG-794,Google Play,2026-09-02,Android,"ai_gemini,privacy",negative,High,N,N,"The constant pressure to use AI tools, has me on the hunt for a new app"
+PG-795,Google Play,2026-08-04,Android,"free_up_space,data_loss",negative,High,Y,N,"It cleared all the photos from my actual phone from my gallery!! thankfully, I was able to restore them"
+PG-796,Google Play,2026-08-28,Android,"backup_issue,folder_view",negative,High,N,N,"Can't see folders, save SOME photos to cloud, thousands"
+PG-797,Google Play,2026-08-29,Android,ui_change,negative,High,N,N,"Magic Eraser broken, spotty, TCL 50 XE, Samsung A17"
+PG-798,Google Play,2026-08-20,Android,ui_change,negative,High,N,N,"Irregular sized, random selected photo enlarged, confusing"
+PG-799,Google Play,2026-08-24,Android,storage_quota,negative,High,N,N,"Not easy to transfer, push subscription, deleted slow"
+PG-800,Google Play,2026-08-27,Android,positive_experience,positive,High,N,N,"Love this app! Creative styles, colors, changes"
+PG-801,Google Play,2026-08-17,Android,ui_change,negative,High,N,N,"Cascading async third-party loads, toast on edit button"
+PG-802,Google Play,2026-08-16,Android,folder_view,negative,High,N,N,"Want folders for albums, hard to organize key media"
+PG-803,Google Play,2026-08-13,Android,"data_loss,folder_view",negative,High,Y,N,"Deleted .dng files, photo tile removed, critical bug, Pixel 8 Pro"
+PG-804,Google Play,2026-08-14,Android,positive_experience,positive,High,N,N,"Free, no ads, easy to use, satisfying, own folders"
+PG-805,Google Play,2026-08-19,Android,backup_issue,negative,High,N,N,"Selected 28 images to back up, started backing up 11,000"
+PG-806,Google Play,2026-08-15,Android,"folder_view,ui_change",negative,High,N,N,"Edited photos gone, search original, editor larger"
+PG-807,Google Play,2026-08-19,Android,"folder_view,feature_request",negative,High,N,N,"Can't download multiple photos back to phone, content creators"
+PG-808,Google Play,2026-08-17,Android,"folder_view,ui_change",negative,High,N,N,"Favorites feature removed, grid by date disabled"
+PG-809,Google Play,2026-08-15,Android,"folder_view,ui_change",negative,High,N,N,"Cuts pics in half, location doesn't work, 95% time nothing"
+PG-810,Google Play,2026-08-16,Android,ui_change,negative,High,N,N,"Multi-select frustrating, huge action panel, Galaxy S26 Ultra"
+PG-811,Google Play,2026-08-16,Android,ui_change,negative,High,N,N,"Remix slop, opted into Remix memories, Create Panorama missing"
+PG-812,Google Play,2026-08-13,Android,folder_view,negative,High,N,N,"Ignores albums on backup, double work, pukes photos into one gallery"
+PG-813,Google Play,2026-08-18,Android,"folder_view,data_loss",negative,High,Y,N,"G photos takes photos from Samsung Gallery, destroys folders, over-duplicates, ruins dates"
+PG-814,Google Play,2026-08-29,Android,ui_change,negative,High,N,N,"Most recent layout change terrible, tedious, less streamlined"
+PG-815,Google Play,2026-08-15,Android,"data_loss,backup_issue",negative,High,Y,N,"Deleting photos transferring to SD card, lost special pictures"
+PG-816,Google Play,2026-08-18,Android,"data_loss,backup_issue",negative,High,Y,N,"Lost thousands of irreplaceable photos, Japan trip, backed up without approval"
+PG-817,Google Play,2026-08-21,Android,backup_issue,negative,High,N,N,"Auto backup on, 40000 pending, days to backup 100 photos"
+PG-818,Google Play,2026-08-23,Android,ui_change,negative,High,N,N,"Every update worse, Pixel 11, crash editing videos"
+PG-819,Google Play,2026-08-14,Android,face_recognition,negative,High,N,N,"Photos not categorized by face, 1000 photos of same person"
+PG-820,Google Play,2026-08-13,Android,"ui_change,folder_view",negative,High,N,N,"Automatically sorts photos into different folders I don't want, hidden places"
+PG-821,Google Play,2026-08-15,Android,"privacy,folder_view",negative,High,N,N,"Locked folder not accessible, important pictures, fix"
+PG-822,Google Play,2026-07-15,Android,ui_change,negative,High,N,N,"Navigating videos difficult, jumps minutes, screenshots, next few seconds"
+PG-823,Google Play,2026-09-08,Android,"search_failure,ui_change",negative,High,N,N,"Messed up search function, 3 more unnecessary steps, old UI"
+PG-824,Google Play,2026-08-20,Android,ui_change,negative,High,N,N,"Editor no longer working, broken images, doesn't show, upload"
+PG-825,Google Play,2026-08-27,Android,ai_gemini,negative,High,N,N,"Like everything else Google makes, Photos is being ruined by AI. I'm especially tired of telling it to turn off Quick Edit"
+PG-826,Google Play,2026-08-29,Android,"folder_view,storage_quota",negative,High,N,N,"Auto album, no option, Receipt folder nonsense, important paper"
+PG-827,Google Play,2026-08-18,Android,folder_view,negative,High,N,N,"Allow internal storage, don't force backup, phone benefits"
+PG-828,Google Play,2026-09-10,Android,ui_change,negative,High,N,N,"Dynamic resizing horrible, switching to Samsung gallery until fixed"
+PG-829,Google Play,2026-08-12,Android,ai_gemini,negative,High,N,N,"AI ad pops up, disabled AI features, annoying, disable app"
+PG-830,Google Play,2026-07-28,Android,"free_up_space,data_loss",negative,High,Y,N,"Free up space moved nearly ALL photos from gallery to Google gallery, hellscape"
+PG-831,Google Play,2026-06-24,Android,ui_change,positive,Medium,N,N,"Day grouping back, new look, best photo app, 5 stars"
+PG-832,Google Play,2026-09-07,Android,"privacy,backup_issue",negative,High,N,N,"Uploaded 4.5GB without permission, expensive Data, not WiFi"
+PG-833,Google Play,2026-09-03,Android,ui_change,negative,High,N,N,"Moved to trash bar large ugly black, blocks view, unnecessary"
+PG-834,Google Play,2026-09-01,Android,"folder_view,ui_change",negative,High,N,N,"Automatically stores in Numerous folders, scattered in 12 places"
+PG-835,Google Play,2026-09-08,Android,"backup_issue,feature_request",negative,High,N,N,"Needs selective backup, separate toggles, specific device folders"
+PG-836,Google Play,2026-08-24,Android,ai_gemini,negative,High,N,N,"AI content from photos, no way to disable, dead dog"
+PG-837,Google Play,2026-07-25,Android,backup_issue,negative,High,N,N,"Preferring settings not default, harassed, GenAI bloatware, 0 stars"
+PG-838,Google Play,2026-08-25,Android,ui_change,negative,High,N,N,"Can't play Linear PCM video, background updates, old UI works"
+PG-839,Google Play,2026-08-22,Android,ui_change,negative,Medium,N,N,"Updates every other day, 80-90 MB, eating memory, newspaper each day"
+PG-840,Google Play,2026-08-27,Android,folder_view,negative,High,N,N,"Pictures in drive, pour resolution, Nikon Canon Sony"
+PG-841,Google Play,2026-08-31,Android,ui_change,negative,High,N,N,"Timeline doesn't show all photos, horror show of usability, browser too"
+PG-842,Google Play,2026-08-22,Android,ui_change,negative,Medium,N,N,"Data price gouging, buggy updates, used to be great"
+PG-843,Google Play,2026-07-12,Android,folder_view,negative,High,N,N,"Albums jumbled, missing photos, dates out of sorting alignment"
+PG-844,Google Play,2026-08-24,Android,folder_view,negative,High,N,N,"Changing layout, camera album default, people and pets poor AI"
+PG-845,Google Play,2026-07-19,Android,storage_quota,negative,High,N,N,"Storage Greed, cutting limiting, 15g less than 10% of thumb drive"
+PG-846,Google Play,2026-07-30,Android,ui_change,negative,High,N,N,"Drastically slowed load, on device photos, premium membership"
+PG-847,Google Play,2026-06-29,Android,"backup_issue,feature_request",mixed,High,N,N,"Want to manually select which photos are backed up, Pinterest, screenshots"
+PG-848,Google Play,2026-07-21,Android,storage_quota,negative,High,N,N,"Google running scam to pay more, deleted 3 THOUSAND photos, email wont work"
+PG-849,Google Play,2026-07-28,Android,"backup_issue,folder_view",negative,High,N,N,"No easy way to un-backup, random large images, Collections annoying"
+PG-850,Google Play,2026-07-19,Android,backup_issue,negative,High,N,N,"Back-up turns on automatically, runs out storage, force buy"
+PG-851,Google Play,2026-08-01,Android,"search_failure,ai_gemini",negative,High,N,N,"AI exhausted, frustrated, wasted time finding simple photo, can't find photos"
+PG-852,Google Play,2026-07-21,Android,"folder_view,ui_change",negative,High,N,N,"Bad navigation, recent downloads not on top, Gmail photos"
+PG-853,Google Play,2026-07-18,Android,positive_experience,positive,High,N,N,"Like google photos a lot, sharing easy, backed up, editing tools"
+PG-854,Google Play,2026-07-25,Android,ui_change,negative,High,N,N,"Standard features missing, pen size, removes photos, years"
+PG-855,Google Play,2026-07-30,Android,"search_failure,ai_gemini",negative,High,N,N,"Far too many changes, unclear, keyword searched replaced by chatty scatter-gun AI"
+PG-856,Google Play,2026-07-22,Android,ui_change,negative,High,N,N,"Stop changing, tabs floating, can't sort albums, dates off"
+PG-857,Google Play,2026-08-07,Android,"folder_view,backup_issue",negative,High,N,N,"Can't sort on device folders, duplicates, folder backup turns off"
+PG-858,Google Play,2026-06-29,Android,"backup_issue,data_loss",negative,High,Y,N,"Automatically added, backing up on, filled storage, delete deletes from gallery"
+PG-859,Google Play,2026-07-28,Android,ui_change,negative,High,N,N,"4 photos across to 3, cramped, can't press swipe select"
+PG-860,Google Play,2026-07-14,Android,ui_change,negative,Medium,N,N,"Installation variant, current storage old, needs upgraded"
+PG-861,Google Play,2026-08-03,Android,backup_issue,negative,High,N,N,"Synchs on updates, eats storage, promo for itself"
+PG-862,Google Play,2026-07-22,Android,"ui_change,folder_view",negative,High,N,N,"Random massive photo, dates out of order, uniform grid"
+PG-863,Google Play,2026-08-08,Android,"ui_change,folder_view",negative,High,N,N,"Constant updates, can't put photos in albums without backup, can't delete automatic"
+PG-864,Google Play,2026-07-17,Android,"ui_change,folder_view",negative,High,N,N,"One block of photos, no clear month/day, pinch in/out changed"
+PG-865,Google Play,2026-07-10,Android,"ui_change,folder_view",negative,High,N,N,"Giant memory carousel, no way to shrink, dynamic thumbnails, downgraded"
+PG-866,Google Play,2026-06-29,Android,ui_change,negative,High,N,N,"Magic eraser previous fine, new doesn't work, new people"
+PG-867,Google Play,2026-07-24,Android,ui_change,negative,High,N,N,"Loved photo storing, updates terrible for editing, landscape, floating menus"
+PG-868,Google Play,2026-07-21,Android,"folder_view,search_failure",negative,High,N,N,"Poor design, auto sorting flawed, searching by name doesn't work, file names not read"
+PG-869,Google Play,2026-08-11,Android,"search_failure,feature_request",positive,High,N,N,"App is great, team listened, search for albums improved, switch faces"
+PG-870,Google Play,2026-06-24,Android,"folder_view,ui_change",negative,High,N,N,"Screwed up, downloads screenshots in Camera, AI puts photos where it thinks"
+PG-871,Google Play,2026-07-14,Android,folder_view,negative,High,N,N,"App not bad, can't see all images, 3 taps, default gallery sucks"
+PG-872,Google Play,2026-07-21,Android,"ui_change,workaround",negative,High,N,Y,"New horrible update, three dots, change layout to day or month, floating bar"
+PG-873,Google Play,2026-06-25,Android,backup_issue,negative,High,N,N,"Prompt forces choose backup/not, no way to close, predatory, payment verification"
+PG-874,Google Play,2026-08-05,Android,"search_failure,ai_gemini",negative,High,N,N,"Search became useless a few months ago, tyre home cat, removed edit with"
+PG-875,Google Play,2026-07-19,Android,ui_change,negative,High,N,N,"Return previous layout, tabs docked bottom, floating pill, infinite hot zone"
+PG-876,Google Play,2026-07-05,Android,"face_recognition,folder_view",negative,High,N,N,"Conversation hidden, UI poor, face recognition horrible, many identities"
+PG-877,Google Play,2026-07-25,Android,"ui_change,folder_view",negative,High,N,N,"New UI hamstringing, random photos blown up, tap and drag broken"
+PG-878,Google Play,2026-07-27,Android,"ui_change,folder_view",negative,High,N,N,"Latest update remove months awful, can't find pictures, larger photos"
+PG-879,Google Play,2026-07-15,Android,ui_change,negative,High,N,N,"Old look gone, no favorites, slow, stopped using"
+PG-880,Google Play,2026-08-01,Android,ui_change,negative,Medium,N,N,"Update info always same, storage management tool, not telling changes"
+PG-881,Google Play,2026-07-16,Android,backup_issue,negative,High,N,N,"Disabled backup, started backing up again without asking, fill gdrive"
+PG-882,Google Play,2026-07-27,Android,"ui_change,folder_view",negative,High,N,N,"Simple app but repeated backup asks, updates, crop/rotate save copy, meme camera folder"
+PG-883,Google Play,2026-07-05,Android,backup_issue,negative,High,N,N,"Stopped photos from backing up camera, update, checked settings"

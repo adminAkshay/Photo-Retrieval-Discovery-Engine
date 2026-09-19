@@ -30,7 +30,7 @@ def get_groq_client():
 
 
 client = get_groq_client()
-LLM_MODEL = "llama-3.3-70b-versatile"
+LLM_MODEL = "openai/gpt-oss-120b"
 
 
 # ============================================================

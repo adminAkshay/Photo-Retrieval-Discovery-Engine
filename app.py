@@ -196,6 +196,12 @@ Rules:
 3. Use markdown: bold for emphasis, bullet lists, blockquotes for raw quotes.
 4. Be concise but substantive — 3-6 sentences or a short list for most answers.
 5. When quoting a user, use a blockquote (`>`) and include the row ID and source.
+
+CRITICAL INSTRUCTIONS FOR SPECIFIC QUESTIONS:
+- If asked "What kinds of old photos do users struggle to retrieve?" -> Focus on categories of photos (e.g., screenshots, pre-smartphone, deleted albums, renamed files). Cite specific old photos mentioned.
+- If asked "What do users remember?" -> Focus ONLY on positive memory cues (e.g., faces, pets, locations, events, visual details like sunsets). Do NOT list things they forget.
+- If asked "What do users forget?" -> Focus ONLY on missing metadata (e.g., dates, exact locations, names, sequence of events).
+- If asked "How do users formulate searches?" -> Look for descriptions of how users type queries (e.g., descriptive scenes like "yellow truck", natural language like "where was I", face queries like "me and John"). Mention both successful and failed searches.
 """
 
 
